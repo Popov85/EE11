@@ -15,7 +15,7 @@ public class App {
         public static void main(String[] args) {
                 EmployeeDAO employeeDAO = applicationContext.getBean("employeeDAOImpl", EmployeeDAOImpl.class);
                 Employee employee = employeeDAO.getByName("Mr. Black");
-                employee.toString();
+                System.out.println(employee.toString());
                 System.out.println("Finished!");
         }
 }

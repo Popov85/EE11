@@ -2,5 +2,7 @@
 
 *.class
 
+*.target
+
 *.war
 *.jar
