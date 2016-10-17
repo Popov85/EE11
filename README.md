@@ -8,8 +8,8 @@
     <meta charset='utf-8'>
     
 
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-5a4495e55512ce6485712c2e324df0deb8ae50fcff010fb645e54987c5b83a53.css" integrity="sha256-WkSV5VUSzmSFcSwuMk3w3riuUPz/AQ+2ReVJh8W4OlM=" media="all" rel="stylesheet" />
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-2f3f59ccad6d2e2f9fe870a81958689138f9f1cb5fa6750352f0b9825e20c124.css" integrity="sha256-Lz9ZzK1tLi+f6HCoGVhokTj58ctfpnUDUvC5gl4gwSQ=" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-57ac15cd619402fa7b4db281d5f4aabf22a77e060fdd677a522085930f594723.css" integrity="sha256-V6wVzWGUAvp7TbKB1fSqvyKnfgYP3Wd6UiCFkw9ZRyM=" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-117401937454c3c0982f12ddf42c891a5aee87d69f3b20278b23f9ca2926bf21.css" integrity="sha256-EXQBk3RUw8CYLxLd9CyJGlruh9afOyAniyP5yikmvyE=" media="all" rel="stylesheet" />
     
     
     
@@ -39,10 +39,10 @@
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/MTQxMjU3OTY6ZmNkZDhiMWJiNTM3ZDRhODRhMzEwZjFhNmY2NDUyOGQ6MjQxMDA2NDUzOGM0MzBhYzNlZjljNjlmNzBjNDBiZWRjOWMyYmI1ZmUyZmEwZWE3MjIyNjMzOTg5ZmFkNzA3NA==--34de41bf2a6b261f0b0aa2431454794f8abbca92">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MTQxMjU3OTY6MGU4MGZjNmJkZWE3ZjEyYTNkNGE2M2Y2ZGI4MmE3ZGQ6N2ZmYzAzYjNiOWI0MzRkOTZiYWViODU0MzFhODVlMDAxMTc5MGEyMWRjODg4NmRlZjI1MDkyNDgzY2ZiMWYwMw==--7322c124339aaf1a19ffbda368bbbb59dad9559a">
     <meta name="pjax-timeout" content="1000">
     <link rel="sudo-modal" href="/sessions/sudo_modal">
-    <meta name="request-id" content="B2D2DD3E:20068:981E55B:580145A5" data-pjax-transient>
+    <meta name="request-id" content="B2D2DD3E:20067:5C191D4:58051DD3" data-pjax-transient>
 
     <meta name="msapplication-TileImage" content="/windows-tile.png">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -52,7 +52,7 @@
 <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="B2D2DD3E:20068:981E55B:580145A5" name="octolytics-dimension-request_id" /><meta content="14125796" name="octolytics-actor-id" /><meta content="Popov85" name="octolytics-actor-login" /><meta content="7440f1dc88f3492c32359324f8e89336107ab0756951ca5ff91229474ee30f91" name="octolytics-actor-hash" />
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="B2D2DD3E:20067:5C191D4:58051DD3" name="octolytics-dimension-request_id" /><meta content="14125796" name="octolytics-actor-id" /><meta content="Popov85" name="octolytics-actor-login" /><meta content="7440f1dc88f3492c32359324f8e89336107ab0756951ca5ff91229474ee30f91" name="octolytics-actor-hash" />
 <meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
 
 
@@ -65,7 +65,7 @@
     <meta name="user-login" content="Popov85">
 
         <meta name="expected-hostname" content="github.com">
-      <meta name="js-proxy-site-detection-payload" content="MmQxM2RkZTcxOWNhZGEyNTA5OTU2Njg3MTdjNjZhOTEzNTdlZmZmYTAyOTU5OTVmZTlmM2QxZmJmNTkxZDcyM3x7InJlbW90ZV9hZGRyZXNzIjoiMTc4LjIxMC4yMjEuNjIiLCJyZXF1ZXN0X2lkIjoiQjJEMkREM0U6MjAwNjg6OTgxRTU1Qjo1ODAxNDVBNSIsInRpbWVzdGFtcCI6MTQ3NjQ3ODM3MywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+      <meta name="js-proxy-site-detection-payload" content="N2ZkY2M2NzhlNmVlYjJlNTE2MGRiYmJiZjg1MDAxNWE3M2E1YzUyYzBhOTU5YmY3MGQ5YjY1ZTRlOTNmYzc1NXx7InJlbW90ZV9hZGRyZXNzIjoiMTc4LjIxMC4yMjEuNjIiLCJyZXF1ZXN0X2lkIjoiQjJEMkREM0U6MjAwNjc6NUMxOTFENDo1ODA1MUREMyIsInRpbWVzdGFtcCI6MTQ3NjczMDMyOSwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
 
 
       <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
@@ -74,7 +74,7 @@
     <meta name="html-safe-nonce" content="882bb72a12f8bbc01e8eab3d56285527de81829b">
     <meta content="d8b5c6e031d217570c83aa9eb2dbaef560934d32" name="form-nonce" />
 
-    <meta http-equiv="x-pjax-version" content="45884ef5c105cc8f5e79025df75209ec">
+    <meta http-equiv="x-pjax-version" content="55d50844ee078e83cbd55ad25ff14742">
     
 
       
@@ -228,7 +228,7 @@
           Settings
         </a>
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IrsaJT9bR8lmM2TJJHGnMl3xu5r6jw+MnZ0W75TUBO2URt3Y1YTKK1HS1ZCQAdXCqTkvVtDC0OKirm2JwBR91g==" /></div>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="7bCF9Id94ulJPlYmIPvDzjdhCFSSxDTiYnPh11kRPKwAEovGvwYsLpWIPYZQvRYw2JipZ+WfXryHbYoNNCiOkQ==" /></div>
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -264,7 +264,7 @@
 <ul class="pagehead-actions">
 
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="P5wdRqf+NuhM+u9F5ai0a6Wws44SXOun+FzWRkMnx5/SsDjzQo4wEzCO7qU6NzsM7exjgSX8aBx7aZW2NdTVbg==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="70908949" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="l/kYcDK5xBcz1ovKy/zM1hZCrHzzmJX1H2CC43gYckLJISQ/J1/YPD1tIgpi+HwAYz/1/oXmTc0zel2OEMWRcQ==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="70908949" />
 
         <div class="select-menu js-menu-container js-select-menu">
           <a href="/Popov85/EE09/subscription"
@@ -341,7 +341,7 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/unstar" class="starred" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="AOgWIVnPxuL8n5yNbbyz+32ZS9PqvMWtf+g85KbwpnuLgQ6Ckzn1UgnKZLEICiPJo1l3BI6ky6y6eMTo4SyVvg==" /></div>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/unstar" class="starred" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="kMMYiYGdPDhyG6iPIrzYiNfEHdgE6izgeFz0885VCSc3T+GqpLTlsKawOIaVmj47+35aRcxoPRF2OUjlDB8UFg==" /></div>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
@@ -355,7 +355,7 @@
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/star" class="unstarred" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="uvRqM9XA3OL4YcCUeFmOGW0B6TUzsuR/UAFI8x7B3v+4LDkw9iDFUV/+AjMDwnY3QggjlNTRaPliBGZubQfDgA==" /></div>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/star" class="unstarred" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="HwqpKmzXwkgyCtbZos9Za3ohfPDBq/otoXKt3eFXq6IMWuXTKsLL9CGwdolquRWKXq05zHV5SJsmPf0kitgTEA==" /></div>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
@@ -373,7 +373,7 @@
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/fork" class="btn-with-count" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="7wSQmlxQ6pUf4Z+ZdNkDlyryUA/CNUCsHOMp5J8nuJ90Y3odcXJn+olbguBXu7Rfn1TEecZDuc9nrUc8PDTyNw==" /></div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/fork" class="btn-with-count" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="RXUTQISXg4CTc8gvz3hMtPR82TdhF6sIZvbPPpCsOx8AE79hWcBivGLm0o8wptB6BKbK23eHMf454mF0X8OonA==" /></div>
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
@@ -465,9 +465,9 @@
 
     
 
-<a href="/Popov85/EE09/blob/2cf30148f8836fa42063ed331813872c84240751/README.md" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
+<a href="/Popov85/EE09/blob/898aaab8d3110ebca90242be948238c1e51cc36e/README.md" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
 
-<!-- blob contrib key: blob_contributors:v21:dcd21ff684994d30ae5478d0f267fda1 -->
+<!-- blob contrib key: blob_contributors:v21:973adffdfdf75568886f88ca56272ba8 -->
 
 <div class="file-navigation js-zeroclipboard-container">
   
@@ -520,7 +520,7 @@
             </a>
         </div>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IynaUXnO5D6w8s8pwjQOtO+1yxCvJ6Go5QIGh8RAt5Z50nmRUho06FUi/yNxCI15zq9W7wj+phhmd6HMTWD8KQ==" /></div>
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Il+XKcpU/30iPklg36Dn0U5qYXLf4MK8LEI1qtfxXx5bRpYdvVpMHcsZU3mOmdG24ID6RVZRnuyUVwYHxz7erw==" /></div>
           <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
             <div class="select-menu-item-text">
               <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
@@ -559,39 +559,16 @@
   </div>
 </div>
 
-
-  <div class="commit-tease">
-      <span class="float-right">
-        <a class="commit-tease-sha" href="/Popov85/EE09/commit/2cf30148f8836fa42063ed331813872c84240751" data-pjax>
-          2cf3014
-        </a>
-        <relative-time datetime="2016-10-14T15:30:57Z">Oct 14, 2016</relative-time>
-      </span>
-      <div>
-        <img alt="@Popov85" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/14125796?v=3&amp;s=40" width="20" />
-        <a href="/Popov85" class="user-mention" rel="author">Popov85</a>
-          <a href="/Popov85/EE09/commit/2cf30148f8836fa42063ed331813872c84240751" class="message" data-pjax="true" title="Create README.md">Create README.md</a>
-      </div>
-
-    <div class="commit-tease-contributors">
-      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
-        <strong>1</strong>
-         contributor
-      </button>
-      
-    </div>
-
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list" data-facebox-id="facebox-description">
-          <li class="facebox-user-list-item">
-            <img alt="@Popov85" height="24" src="https://avatars3.githubusercontent.com/u/14125796?v=3&amp;s=48" width="24" />
-            <a href="/Popov85">Popov85</a>
-          </li>
-      </ul>
-    </div>
+<include-fragment class="commit-tease" src="/Popov85/EE09/contributors/master/README.md">
+  <div>
+    Fetching contributors&hellip;
   </div>
 
+  <div class="commit-tease-contributors">
+    <img alt="" class="loader-loading float-left" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" />
+    <span class="loader-error">Cannot retrieve contributors at this time</span>
+  </div>
+</include-fragment>
 <div class="file">
   <div class="file-header">
   <div class="file-actions">
@@ -609,12 +586,12 @@
             <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"></path></svg>
         </a>
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/edit/master/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="0r6g9K2mws2L6Fs9KPG2Wt4OGpcUBl1hNwm+xGZfhAtuBYWevLU31dMkQ2hYHWrXEz7WBAgsqVq59sN7gcfYKg==" /></div>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/edit/master/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="n70Jz+I01ZNAR86RZTv4G+/rX7xpXYXSEoWMu59pFoBeMxqIMF2AFzoduhKD4fZCTI4z0/Nyha7LkcsDRcju5A==" /></div>
           <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
             aria-label="Edit this file" data-hotkey="e" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"></path></svg>
           </button>
-</form>        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/delete/master/README.md" class="inline-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="dpE5hgAGMRpwrtazfxgZHnmccVKt68PlOhMsXlu5a/VBjXBOaJ06kOy3+csQ5wlKBmuhZfyba1ZaX6ziPCtvfA==" /></div>
+</form>        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/Popov85/EE09/delete/master/README.md" class="inline-form" data-form-nonce="d8b5c6e031d217570c83aa9eb2dbaef560934d32" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="zM5j4/EI2AJSYjM0ACax3JVHTAyfyByMEeHo1VGC5gJAdTOm7U53ZbXQI4rwm2b7udmDaZasZ9ktTvE8JERbwg==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"></path></svg>
@@ -622,84 +599,63 @@
 </form>  </div>
 
   <div class="file-info">
-      65 lines (45 sloc)
+      50 lines (49 sloc)
       <span class="file-info-divider"></span>
-    2.67 KB
+    5.14 KB
   </div>
 </div>
 
   
   <div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-ee09" class="anchor" href="#ee09" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EE09</h1>
-
-<p>Restaurant app: Postgresql, JDBC, Transactions, Logging, Web-interface</p>
-
-<p>Реализуйте приложения для ведения учета в ресторане. Используйте модель ресторана, предоставленную в задании по СУБД.</p>
-
+    <article class="markdown-body entry-content" itemprop="text"><div><p>Реализуйте приложения для ведения учета в ресторане. Используйте модель ресторана, предоставленную в задании по СУБД.</p>
 <p>Приложение должно иметь интерфейс по вашему выбору (один из):</p>
-
-<p>консоль по умолчанию
-swing
-javaFX
-web<br>
-Пользователь приложения должен иметь возможность:</p>
-
-<p>Сотрудники:
-добавлять сотрудников
-удалять сотрудников
-искать сотрудников по имени
-выводить на экран список всех сотрудников</p>
-
-<ol>
-<li>Блюдо:</li>
-</ol>
-
-<p>добавлять новые блюда
-удалять существующие
-искать блюда по названию
-вывести на экран списов всех блюда</p>
-
-<ol>
-<li>Меню:</li>
-</ol>
-
-<p>создавать новые меню
-удалять существующие
-добавлять и удалять в/из меню блюда
-искать меню по имени
-выводить список всех меню на экран</p>
-
-<ol>
-<li>Заказы:</li>
-</ol>
-
-<p>создавать заказы
-при создании заказ находится в состоянии "Открыт"
-в открытый заказ можно добавлять удалять блюда,
-можно удалить сам заказ
-открытый заказ можно перевести в состояние "Закрытый"
-закрытые заказы нельзя изменять (добавлять удалять блюда)
-закрытый заказ нельзя удалить
-просматривать открытие заказы
-просматривать закрытые заказы</p>
-
-<ol>
-<li>История кухни:</li>
-</ol>
-
-<p>добавлять приготовленные блюда
-просматривать приготовленные блюда</p>
-
-<ol>
-<li>Склад:</li>
-</ol>
-
-<p>добавлять новые ингредиенты на склад
-удалять ингредиенты из склада
-изменять количество ингредиенты на складе
-искать ингредиенты по имени
-выводить на экран все ингредиенты
-выводить на экран ингредиенты, которые заканчиваются (например те, которых меньше 10 единиц)</p>
+<ul><li>консоль по умолчанию</li>
+<li>swing</li>
+<li>javaFX</li>
+<li>web   </li>
+</ul><p>Пользователь приложения должен иметь возможность:</p>
+<ol><li>Сотрудники:</li>
+</ol><ul><li>добавлять сотрудников</li>
+<li>удалять сотрудников</li>
+<li>искать сотрудников по имени</li>
+<li>выводить на экран список всех сотрудников</li>
+</ul><p>                              </p>
+<p>2. Блюдо:</p>
+<ul><li>добавлять новые блюда</li>
+<li>удалять существующие</li>
+<li>искать блюда по названию</li>
+<li>вывести на экран списов всех блюда</li>
+</ul><p>                              </p>
+<p>3. Меню:</p>
+<ul><li>создавать новые меню</li>
+<li>удалять существующие</li>
+<li>добавлять и удалять в/из меню блюда</li>
+<li>искать меню по имени</li>
+<li>выводить список всех меню на экран</li>
+</ul><p>                              </p>
+<p>4. Заказы:</p>
+<ul><li>создавать заказы</li>
+<li>при создании заказ находится в состоянии "Открыт"</li>
+<li>в открытый заказ можно добавлять удалять блюда,</li>
+<li>можно удалить сам заказ</li>
+<li>открытый заказ можно перевести в состояние "Закрытый"</li>
+<li>закрытые заказы нельзя изменять (добавлять удалять блюда)</li>
+<li>закрытый заказ нельзя удалить</li>
+<li>просматривать открытие заказы</li>
+<li>просматривать закрытые заказы</li>
+</ul><p>                              </p>
+<p>5. История кухни:</p>
+<ul><li>добавлять приготовленные блюда</li>
+<li>просматривать приготовленные блюда</li>
+</ul><p>                              </p>
+<p>6. Склад:</p>
+<ul><li>добавлять новые ингредиенты на склад</li>
+<li>удалять ингредиенты из склада</li>
+<li>изменять количество ингредиенты на складе</li>
+<li>искать ингредиенты по имени</li>
+<li>выводить на экран все ингредиенты</li>
+<li>выводить на экран ингредиенты, которые заканчиваются (например те, которых меньше 10 единиц)</li>
+</ul><p>                               </p></div>
 </article>
   </div>
 
@@ -738,7 +694,7 @@ web<br>
       <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 </a>
     <ul class="site-footer-links">
-      <li>&copy; 2016 <span title="0.09603s from github-fe143-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2016 <span title="0.09307s from github-fe130-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
@@ -763,7 +719,7 @@ web<br>
 
       
       <script crossorigin="anonymous" integrity="sha256-1cdy43iaaZRstd4rQoAh+PoxMNSU5FWh1ErTVFR1kCE=" src="https://assets-cdn.github.com/assets/frameworks-d5c772e3789a69946cb5de2b428021f8fa3130d494e455a1d44ad35454759021.js"></script>
-      <script async="async" crossorigin="anonymous" integrity="sha256-agmoE9+uJzt2c4n8SHkHTVWUwR5hAPxshHyLVqDb5ys=" src="https://assets-cdn.github.com/assets/github-6a09a813dfae273b767389fc4879074d5594c11e6100fc6c847c8b56a0dbe72b.js"></script>
+      <script async="async" crossorigin="anonymous" integrity="sha256-1HD2NDvinIwnwrQ4kcHQPtz9IIlJuTmveJKCuVM45k4=" src="https://assets-cdn.github.com/assets/github-d470f6343be29c8c27c2b43891c1d03edcfd208949b939af789282b95338e64e.js"></script>
       
       
       
