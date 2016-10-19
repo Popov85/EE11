@@ -3,6 +3,7 @@ package com.goit.popov.ee09.service;
 import com.goit.popov.ee09.dao.entity.EmployeeDAO;
 import com.goit.popov.ee09.dao.impl.EmployeeDAOImpl;
 import com.goit.popov.ee09.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,7 +14,12 @@ import java.util.List;
  */
 public class EmployeeServiceImpl implements EmployeeService {
 
+        @Autowired
         private EmployeeDAO employeeDAO;
+
+        public void setEmployeeDAO(EmployeeDAO employeeDAO) {
+                this.employeeDAO = employeeDAO;
+        }
 
         @Override
         public int insert(Employee employee) {
@@ -22,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         @Override
         public void update(Employee employee) {
-
         }
 
         @Override
