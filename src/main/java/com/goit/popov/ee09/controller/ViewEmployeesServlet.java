@@ -41,7 +41,7 @@ public class ViewEmployeesServlet extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-                if (employeeService != null) {
+                /*if (employeeService != null) {
                         System.out.println("Not null!");
                         List<Employee> employeeList = employeeService.getAll();
                         // Actual logic goes here.
@@ -51,13 +51,15 @@ public class ViewEmployeesServlet extends HttpServlet {
                         // Actual logic goes here.
                         PrintWriter out = resp.getWriter();
                         out.println("<h1>" + "doGet: null" + "</h1>");
-                }
+                }*/
+
+                List<Employee> employeeList = employeeService.getAll();
 
                 //companyList.sort((Company company1, Company company2) -> company1.getName().compareTo(company2.getName()));
-                /*req.setAttribute("employeeList", employeeList);
+                req.setAttribute("employeeList", employeeList);
 
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("view_employees.jsp");
-                requestDispatcher.forward(req, resp);*/
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
+                requestDispatcher.forward(req, resp);
         }
 /*
         @Override
