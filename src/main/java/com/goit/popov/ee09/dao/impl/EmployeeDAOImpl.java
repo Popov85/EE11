@@ -6,6 +6,7 @@ import com.goit.popov.ee09.model.Position;
 import org.apache.commons.dbcp2.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -34,6 +35,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         private static final String SELECT_NAME_SQL = "SELECT employee.id, employee.name," +
                 " dob, phone, position_id, salary, position.title as position_name" +
                 " FROM employee INNER JOIN position ON employee.position_id  = position.id WHERE employee.name = ? ";
+
+        private static final String SELECT_ID_SQL = "SELECT employee.id, employee.name," +
+                " dob, phone, position_id, salary, position.title as position_name" +
+                " FROM employee INNER JOIN position ON employee.position_id  = position.id WHERE employee.id = ? ";
 
         private static final String SELECT_ALL_SQL = "SELECT *" +
                 " FROM employee";
@@ -162,5 +167,42 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);
                 }
+        }
+
+        @Override
+        public Employee getById(int id) {
+                ResultSet resultSet = null;
+                Employee employee;
+                Position position;
+                try (Connection connection = dataSource.getConnection();
+                     PreparedStatement statement = connection.prepareStatement(SELECT_ID_SQL)) {
+                        statement.setInt(1, id);
+                        resultSet = statement.executeQuery();
+                        if (resultSet.next()) {
+                                employee = new Employee();
+                                position = new Position();
+                                employee.setId(resultSet.getInt("id"));
+                                employee.setName(resultSet.getString("name"));
+                                employee.setDob(resultSet.getTimestamp("dob"));
+                                employee.setPhone(resultSet.getString("phone"));
+                                position.setId(resultSet.getInt("position_id"));
+                                position.setName(resultSet.getString("position_name"));
+                                employee.setPosition(position);
+                                employee.setSalary(resultSet.getBigDecimal("salary"));
+                                LOGGER.info("GET EMPLOYEE BY ID " + employee.toString());
+                        } else {
+                                LOGGER.error("Error loading Employee form DB...");
+                                throw new RuntimeException("Error loading Employee form DB...");
+                        }
+
+                } catch (SQLException ex) {
+                        LOGGER.error(ex.getMessage());
+                        throw new RuntimeException(ex);
+                } finally {
+                        if (resultSet != null) {
+                                Utils.closeQuietly(resultSet);
+                        }
+                }
+                return employee;
         }
 }

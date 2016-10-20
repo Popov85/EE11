@@ -57,25 +57,7 @@ public class ViewEmployeesServlet extends HttpServlet {
 
                 //companyList.sort((Company company1, Company company2) -> company1.getName().compareTo(company2.getName()));
                 req.setAttribute("employeeList", employeeList);
-
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
                 requestDispatcher.forward(req, resp);
         }
-/*
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                List<Employee> employeeList = employeeService.getAll();
-                // Actual logic goes here.
-                PrintWriter out = resp.getWriter();
-                out.println("<h1>" + "doPost" + "</h1>");
-
-        }
-
-        @Override
-        protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                List<Employee> employeeList = employeeService.getAll();
-                // Actual logic goes here.
-                PrintWriter out = resp.getWriter();
-                out.println("<h1>" + "service" + "</h1>");
-        }*/
 }

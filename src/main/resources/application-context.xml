@@ -28,8 +28,14 @@
 
     <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImpl" autowire="byName"/>
 
+    <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImpl" autowire="byName"/>
+
+    <bean id = "positionService" class="com.goit.popov.ee09.service.PositionServiceImpl">
+        <property name="positions" value="#{positionDAO.getAll()}"/>
+    </bean>
+
     <bean id = "employeeService" class="com.goit.popov.ee09.service.EmployeeServiceImpl" autowire="byName"/>
 
-    <bean id = "employee" class = "com.goit.popov.ee09.model.Employee"/>
+    <bean id = "employee" class = "com.goit.popov.ee09.model.Employee" autowire="byName"/>
 
 </beans>

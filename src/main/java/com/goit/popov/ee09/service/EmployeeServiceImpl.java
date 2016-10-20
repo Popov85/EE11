@@ -23,11 +23,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         @Override
         public int insert(Employee employee) {
-                return 0;
+                return employeeDAO.insert(employee);
         }
 
         @Override
         public void update(Employee employee) {
+                employeeDAO.update(employee);
         }
 
         @Override
@@ -37,11 +38,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         @Override
         public Employee getByName(String name) {
-                return null;
+                return employeeDAO.getByName(name);
         }
 
         @Override
         public void delete(int id) {
+                employeeDAO.delete(id);
+        }
 
+        @Override
+        public Employee getById(int id) {
+                return employeeDAO.getById(id);
         }
 }
