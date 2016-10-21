@@ -6,6 +6,8 @@
 
     <!--<context:component-scan base-package="com.goit.popov.ee09.controller"></context:component-scan>-->
 
+
+
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
     <bean id = "dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" autowire="byName">
@@ -30,7 +32,7 @@
 
     <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImpl" autowire="byName"/>
 
-    <bean id = "positionService" class="com.goit.popov.ee09.service.PositionServiceImpl">
+    <bean id = "positionService" class="com.goit.popov.ee09.service.PositionServiceImpl" autowire="byName">
         <property name="positions" value="#{positionDAO.getAll()}"/>
     </bean>
 

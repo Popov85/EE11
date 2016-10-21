@@ -12,12 +12,12 @@ public class PositionServiceImpl {
         private List<Position> positions;
 
         public List<Position> getPositions() {
-                System.out.println("getPositions");
+                System.out.println("getPositions: "+positions);
                 return positions;
         }
 
         public void setPositions(List<Position> positions) {
-                System.out.println("setPositions");
+                System.out.println("setPositions: "+positions.size());
                 this.positions = positions;
         }
 }

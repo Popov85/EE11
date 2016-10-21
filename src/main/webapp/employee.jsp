@@ -43,10 +43,11 @@
                                 <option value="saab">Cook</option>
                                 <option value="mercedes">Waiter</option>
                         </select>-->
-                        <jsp:useBean id="obj" class="com.goit.popov.ee09.service.PositionServiceImpl" scope="page"/>
+                        <jsp:useBean id="positionService" class="com.goit.popov.ee09.service.PositionServiceImpl"
+                                     scope="page"/>
 
                         <select id = inputPosition>
-                                <c:forEach var="position" items="${obj.positions}">
+                                <c:forEach var="position" items="${positionService.positions}">
                                         <option value=${position.id}>${position.name}</option>
                                 </c:forEach>
                         </select>

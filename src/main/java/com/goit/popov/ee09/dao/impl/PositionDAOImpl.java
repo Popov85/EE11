@@ -21,7 +21,7 @@ public class PositionDAOImpl implements PositionDAO {
 
         private DataSource dataSource;
 
-        public List<Position> positions = new ArrayList<>();
+        public List<Position> positions;
 
         private static final Logger LOGGER = LoggerFactory.getLogger(PositionDAOImpl.class);
 
