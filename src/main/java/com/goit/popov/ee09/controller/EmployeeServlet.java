@@ -1,6 +1,7 @@
 package com.goit.popov.ee09.controller;
 
 import com.goit.popov.ee09.model.Employee;
+import com.goit.popov.ee09.model.Position;
 import com.goit.popov.ee09.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Andrey on 10/17/2016.
@@ -31,20 +34,45 @@ public class EmployeeServlet extends HttpServlet {
         }
 
         @Override
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                // Save data to DB
+                Employee employee = new Employee();
+                employee.setName(req.getParameter("name"));
+                Date dob = null;
+                try {
+                        dob = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("dob"));
+                } catch (ParseException e) {
+                        throw new ServletException();
+                }
+                employee.setDob(dob);
+                employee.setPhone(req.getParameter("phone"));
+                Position position = new Position();
+                position.setId(Integer.parseInt(req.getParameter("position")));
+                employee.setPosition(position);
+                employee.setSalary(BigDecimal.valueOf(Long.parseLong(req.getParameter("salary"))));
+                String id = req.getParameter("id");
+                if(id == null || id.isEmpty()) {
+                        employeeService.insert(employee);
+                }
+                else {
+                        employee.setId(Integer.parseInt(id));
+                        employeeService.update(employee);
+                }
+                RequestDispatcher view = req.getRequestDispatcher("/view_employees.jsp");
+                req.setAttribute("employees", employeeService.getAll());
+                view.forward(req, resp);
+        }
+
+        @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                // Set info from DB to page
+                // Set data from DB to page
                 String action = req.getParameter("action");
                 if (action.equalsIgnoreCase("edit")) {
                         Employee employee = employeeService.getById(Integer.parseInt(req.getParameter("id")));
                         req.setAttribute("employee", employee);
+                        req.setAttribute("position", employee.getPosition().getId());
                         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/employee.jsp");
                         requestDispatcher.forward(req, resp);
                 }
-        }
-
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                // Save date to DB
-
         }
 }

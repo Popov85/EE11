@@ -20,6 +20,12 @@
         <property name="acquireIncrement" value="${jdbc.acquire.increment}"/>
     </bean>
 
+    <!--<bean id="reslover" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+        <property name="exposeContextBeansAsAttributes" value="true" />
+    </bean>-->
+
     <bean id = "txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref = "dataSource"/>
     </bean>

@@ -13,50 +13,44 @@
               style="max-width: 320px; margin: 0 auto; font-size: larger;">
                 <h3 class="form-signin-heading" align="center">Employee:</h3>
                 <div class="form-group">
-                        <input type="text" readonly="readonly" name="ID" title="ID"
+                        <input type="text" readonly="readonly" name="id" title="ID" size="10"
                                value="<c:out value="${employee.id}"/>">
                 </div>
                 <div class="form-group">
-                        <label for="inputName" class="sr-only">Name</label>
-                        <input type="text" id="inputName" class="form-control" placeholder=""
-                               name="" value="<c:out value="${employee.name}"/>"
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" placeholder=""
+                               name="name" value="<c:out value="${employee.name}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
                 <div class="form-group">
-                        <label for="inputDOB" class="sr-only">DOB</label>
-                        <input type="text" id="inputDOB" class="form-control" placeholder=""
-                               name="" value="<c:out value="${employee.dob}"/>"
-                               required autofocus style="z-index: 2;">
-                </div>
-
-                <div class="form-group">
-                        <label for="inputPhone" class="sr-only">Phone:</label>
-                        <input type="text" id="inputPhone" class="form-control" placeholder=""
-                               name="" value="<c:out value="${employee.phone}"/>"
+                        <label for="dob">DOB</label>
+                        <input type="text" id="dob" class="form-control" placeholder=""
+                               name="dob" value="<c:out value="${employee.dob}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
 
                 <div class="form-group">
-                        <label for="inputPosition" class="sr-only">Position</label>
-                        <!--<select id="inputPosition" class="form-control">
-                                <option value="volvo">Manager</option>
-                                <option value="saab">Cook</option>
-                                <option value="mercedes">Waiter</option>
-                        </select>-->
-                        <jsp:useBean id="positionService" class="com.goit.popov.ee09.service.PositionServiceImpl"
-                                     scope="page"/>
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" class="form-control" placeholder=""
+                               name="phone" value="<c:out value="${employee.phone}"/>"
+                               required autofocus style="z-index: 2;">
+                </div>
 
-                        <select id = inputPosition>
-                                <c:forEach var="position" items="${positionService.positions}">
-                                        <option value=${position.id}>${position.name}</option>
-                                </c:forEach>
+                <div class="form-group">
+                        <label for="position">Position</label>
+                        <select id="position" name="position" class="form-control">
+                                <option value="1">Manager</option>
+                                <option value="2">Cook</option>
+                                <option value="3">Waiter</option>
                         </select>
                 </div>
 
+                <script>document.getElementById("position").value = '${position}';</script>
+
                 <div class="form-group">
-                        <label for="inputSalary" class="sr-only">Salary</label>
-                        <input type="text" id="inputSalary" class="form-control" placeholder=""
-                               name="" value="<c:out value="${employee.salary}"/>"
+                        <label for="salary">Salary</label>
+                        <input type="text" id="salary" class="form-control" placeholder=""
+                               name="salary" value="<c:out value="${employee.salary}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
 
