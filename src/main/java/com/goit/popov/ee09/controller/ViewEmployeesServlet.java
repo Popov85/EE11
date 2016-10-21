@@ -52,10 +52,7 @@ public class ViewEmployeesServlet extends HttpServlet {
                         PrintWriter out = resp.getWriter();
                         out.println("<h1>" + "doGet: null" + "</h1>");
                 }*/
-
                 List<Employee> employeeList = employeeService.getAll();
-
-                //companyList.sort((Company company1, Company company2) -> company1.getName().compareTo(company2.getName()));
                 req.setAttribute("employeeList", employeeList);
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
                 requestDispatcher.forward(req, resp);

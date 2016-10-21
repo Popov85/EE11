@@ -37,8 +37,8 @@
                                 <td><c:out value="${employee.phone}"/></td>
                                 <td><c:out value="${employee.position.id}"/></td>
                                 <td><c:out value="${employee.salary}"/></td>
-                                <td><a href="EmployeeServlet?action=edit&id=<c:out value="${employee.id}"/>">Edit</a></td>
-                                <td><a href="ViewEmployeesServlet?action=delete&id=<c:out value="${employee.id}"/>">Delete</a></td>
+                                <td><a href="employee?action=edit&id=<c:out value="${employee.id}"/>">Edit</a></td>
+                                <td><a href="employee?action=delete&id=<c:out value="${employee.id}"/>">Delete</a></td>
                         </tr>
                 </c:forEach>
                 </tbody>
