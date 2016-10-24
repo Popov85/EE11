@@ -51,15 +51,16 @@ public class EmployeeServlet extends HttpServlet {
                 employee.setPosition(position);
                 employee.setSalary(BigDecimal.valueOf(Long.parseLong(req.getParameter("salary"))));
                 String id = req.getParameter("id");
-                if(id == null || id.isEmpty()) {
+                if(id == null || id.isEmpty()) { // new
                         employeeService.insert(employee);
                 }
-                else {
+                else {// edit
+                        System.out.println("I am going to edit!");
                         employee.setId(Integer.parseInt(id));
                         employeeService.update(employee);
                 }
-                RequestDispatcher view = req.getRequestDispatcher("/view_employees.jsp");
                 req.setAttribute("employees", employeeService.getAll());
+                RequestDispatcher view = req.getRequestDispatcher("/view_employees.jsp");
                 view.forward(req, resp);
         }
 
@@ -73,6 +74,9 @@ public class EmployeeServlet extends HttpServlet {
                         req.setAttribute("position", employee.getPosition().getId());
                         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/employee.jsp");
                         requestDispatcher.forward(req, resp);
+                } else if (action.equalsIgnoreCase("delete")) {
+                        employeeService.delete(Integer.parseInt(req.getParameter("id")));
+                        resp.sendRedirect("/employees");
                 }
         }
 }

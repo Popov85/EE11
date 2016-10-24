@@ -40,20 +40,16 @@ public class ViewEmployeesServlet extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-                /*if (employeeService != null) {
-                        System.out.println("Not null!");
-                        List<Employee> employeeList = employeeService.getAll();
-                        // Actual logic goes here.
-                        PrintWriter out = resp.getWriter();
-                        out.println("<h1>" + "do Get: Congrats!" + "</h1>");
-                } else {
-                        // Actual logic goes here.
-                        PrintWriter out = resp.getWriter();
-                        out.println("<h1>" + "doGet: null" + "</h1>");
-                }*/
                 List<Employee> employeeList = employeeService.getAll();
                 req.setAttribute("employeeList", employeeList);
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
+                requestDispatcher.forward(req, resp);
+        }
+
+        @Override
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                Employee employee = employeeService.getByName(req.getParameter("name"));
+                req.setAttribute("employeeList", employee);
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
                 requestDispatcher.forward(req, resp);
         }

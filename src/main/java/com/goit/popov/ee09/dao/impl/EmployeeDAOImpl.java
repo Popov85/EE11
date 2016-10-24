@@ -29,7 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         private static final String INSERT_SQL = "INSERT INTO employee (name, dob, phone, position_id, salary)" +
                 " VALUES (?, ?, ?, ?, ?)";
 
-        private static final String UPDATE_SQL = "UPDATE employee SET name = ?, dob = ?, phone = ?, position = ?, salary = ?," +
+        private static final String UPDATE_SQL = "UPDATE employee SET name = ?, dob = ?, phone = ?, position_id = ?, salary = ?" +
                 " WHERE id = ?";
 
         private static final String SELECT_NAME_SQL = "SELECT employee.id, employee.name," +
@@ -40,8 +40,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 " dob, phone, position_id, salary, position.title as position_name" +
                 " FROM employee INNER JOIN position ON employee.position_id  = position.id WHERE employee.id = ? ";
 
-        private static final String SELECT_ALL_SQL = "SELECT *" +
-                " FROM employee";
+        private static final String SELECT_ALL_SQL = "SELECT employee.id, employee.name," +
+                " dob, phone, position_id, salary, position.title as position_name" +
+                " FROM employee INNER JOIN position ON employee.position_id  = position.id";
 
         public void setDataSource(DataSource dataSource) {
                 this.dataSource = dataSource;
@@ -54,7 +55,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                      PreparedStatement statement = connection.prepareStatement(INSERT_SQL,
                              Statement.RETURN_GENERATED_KEYS)) {
                         statement.setString(1, employee.getName());
-                        statement.setTimestamp(2, new java.sql.Timestamp(employee.getDob().getTime()));
+                        statement.setDate(2, new java.sql.Date(employee.getDob().getTime()));
                         statement.setString(3, employee.getPhone());
                         statement.setInt(4, employee.getPosition().getId());
                         statement.setBigDecimal(5, employee.getSalary());
@@ -70,6 +71,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);
                 }
+                System.out.println("new id = "+id);
                 return id;
         }
 
@@ -78,10 +80,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 try (Connection connection = dataSource.getConnection();
                      PreparedStatement statement = connection.prepareStatement(UPDATE_SQL)) {
                         statement.setString(1, employee.getName());
-                        statement.setTimestamp(2, new java.sql.Timestamp(employee.getDob().getTime()));
+                        //System.out.println("DOB is: "+employee.getDob());
+                        statement.setDate(2, new java.sql.Date(employee.getDob().getTime()));
                         statement.setString(3, employee.getPhone());
                         statement.setInt(4, employee.getPosition().getId());
                         statement.setBigDecimal(5, employee.getSalary());
+                        statement.setInt(6, employee.getId());
                         statement.executeUpdate();
                         LOGGER.info("UPDATE EMPLOYEE " + employee.toString());
                 } catch (SQLException ex) {
@@ -103,9 +107,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                                 position = new Position();
                                 employee.setId(resultSet.getInt("id"));
                                 employee.setName(resultSet.getString("name"));
-                                employee.setDob(resultSet.getTimestamp("dob"));
+                                employee.setDob(resultSet.getDate("dob"));
                                 employee.setPhone(resultSet.getString("phone"));
                                 position.setId(resultSet.getInt("position_id"));
+                                position.setName(resultSet.getString("position_name"));
                                 employee.setPosition(position);
                                 employee.setSalary(resultSet.getBigDecimal("salary"));
                                 employees.add(employee);
@@ -157,7 +162,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         @Override
         public void delete(int id) {
-                final String DELETE_SQL = "DELETE FROM " + "employee" + " WHERE id = ?";
+                final String DELETE_SQL = "DELETE FROM employee WHERE id = ?";
                 try (Connection connection = dataSource.getConnection();
                      PreparedStatement statement = connection.prepareStatement(DELETE_SQL)) {
                         statement.setInt(1, id);

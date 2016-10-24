@@ -1,10 +1,10 @@
 CREATE TABLE "position" (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   title VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY (id));
 
 CREATE TABLE employee (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   name VARCHAR(50) NOT NULL,
   dob DATE,
   phone VARCHAR (20) UNIQUE,
@@ -15,12 +15,12 @@ CREATE TABLE employee (
   REFERENCES "position" (id));
 
 CREATE TABLE ingredient (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   ingredient_name VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY (id));
 
 CREATE TABLE dish (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   dish_name VARCHAR(50) NOT NULL UNIQUE,
   category VARCHAR (50) NOT NULL,
   price REAL NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE dish_ingredient (
   REFERENCES "ingredient" (id));
 
 CREATE TABLE "order" (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   isOpened BOOLEAN NOT NULL,
   order_date TIMESTAMP NOT NULL,
   table_number int,
@@ -54,7 +54,7 @@ CREATE TABLE "order" (
   REFERENCES "dish" (id));
 
 CREATE TABLE menu (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   menu_name VARCHAR(50) NOT NULL UNIQUE,
   PRIMARY KEY (id));
 
@@ -73,7 +73,7 @@ CREATE TABLE store_house (
   REFERENCES "ingredient" (id));
 
 CREATE TABLE prepared_dishes (
-  id INT NOT NULL,
+  id SERIAL NOT NULL,
   prepared_dish TIMESTAMP NOT NULL,
   dish_id int NOT NULL,
   employee_id int NOT NULL,
