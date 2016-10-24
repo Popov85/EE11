@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,7 +50,11 @@ public class ViewEmployeesServlet extends HttpServlet {
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
                 Employee employee = employeeService.getByName(req.getParameter("name"));
-                req.setAttribute("employeeList", employee);
+                List<Employee> employeeList = new ArrayList<>();
+                if (employee!=null) {
+                        employeeList.add(employee);
+                }
+                req.setAttribute("employeeList", employeeList);
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");
                 requestDispatcher.forward(req, resp);
         }

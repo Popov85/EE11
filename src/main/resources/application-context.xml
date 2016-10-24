@@ -10,7 +10,8 @@
 
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
-    <bean id = "dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" autowire="byName">
+    <!--<bean id = "dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" autowire="byName">
+
         <property name="driverClass" value="${jdbc.driver.class}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.user}"/>
@@ -18,6 +19,13 @@
         <property name="minPoolSize" value="${jdbc.min.connections}"/>
         <property name="maxPoolSize" value="${jdbc.max.connections}"/>
         <property name="acquireIncrement" value="${jdbc.acquire.increment}"/>
+    </bean>-->
+
+    <bean id = "dataSource" class = "org.apache.commons.dbcp.BasicDataSource" autowire="byName">
+        <property name="driverClassName" value="${jdbc.driver.class}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
 
     <!--<bean id="reslover" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

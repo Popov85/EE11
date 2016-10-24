@@ -58,6 +58,7 @@
                         </div>
                         <div class="form-group">
                                 <button type="submit">Search</button>
+                                <button type="button" onclick="location.href='/employees'">Reset</button>
                         </div>
                 </form>
         </div>

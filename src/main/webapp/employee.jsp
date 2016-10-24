@@ -41,7 +41,7 @@
                         <label for="position">Position</label>
                         <select id="position" name="position" class="form-control">
                                 <option value="1">Manager</option>
-                                <option value="2">Cook</option>
+                                <option value="2">Chef</option>
                                 <option value="3">Waiter</option>
                         </select>
                 </div>

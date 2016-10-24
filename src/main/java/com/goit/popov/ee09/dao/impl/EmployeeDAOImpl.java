@@ -60,13 +60,17 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                         statement.setInt(4, employee.getPosition().getId());
                         statement.setBigDecimal(5, employee.getSalary());
                         if (1 == statement.executeUpdate() && statement.getGeneratedKeys().next()) {
+                                System.out.println("true");
                                 id = statement.getGeneratedKeys().getInt("id");
+                                System.out.println("id = "+id);
                                 employee.setId(id);
+                                System.out.println("set finished");
                         } else {
                                 LOGGER.error(ERROR);
                                 throw new RuntimeException(ERROR);
                         }
-                        LOGGER.info("INSERT NEW employee " + employee.toString());
+                        System.out.println("last before catch");
+                        //LOGGER.info("INSERT NEW employee " + employee.toString());
                 } catch (SQLException ex) {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);
@@ -143,12 +147,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                                 employee.setPosition(position);
                                 employee.setSalary(resultSet.getBigDecimal("salary"));
                                 LOGGER.info("GET EMPLOYEE BY NAME " + employee.toString());
-
                         } else {
-                                LOGGER.error("Error loading Employee form DB...");
-                                throw new RuntimeException("Error loading Employee form DB...");
+                                LOGGER.info("No such Employee in DB...");
+                                return null;
                         }
-
                 } catch (SQLException ex) {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);

@@ -59,9 +59,10 @@ public class EmployeeServlet extends HttpServlet {
                         employee.setId(Integer.parseInt(id));
                         employeeService.update(employee);
                 }
-                req.setAttribute("employees", employeeService.getAll());
-                RequestDispatcher view = req.getRequestDispatcher("/view_employees.jsp");
-                view.forward(req, resp);
+                //req.setAttribute("employees", employeeService.getAll());
+                //RequestDispatcher view = req.getRequestDispatcher("/employees");
+                //view.forward(req, resp);
+                resp.sendRedirect("/employees");
         }
 
         @Override
@@ -72,6 +73,7 @@ public class EmployeeServlet extends HttpServlet {
                         Employee employee = employeeService.getById(Integer.parseInt(req.getParameter("id")));
                         req.setAttribute("employee", employee);
                         req.setAttribute("position", employee.getPosition().getId());
+                        // update
                         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/employee.jsp");
                         requestDispatcher.forward(req, resp);
                 } else if (action.equalsIgnoreCase("delete")) {

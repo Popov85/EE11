@@ -107,4 +107,7 @@ INSERT INTO prepared_dishes VALUES
   (9, '2016-08-11 17:45:18', 5, 1, 9),
   (10, '2016-08-11 17:46:23', 5, 1,10);
 
+  INSERT INTO employee (name, dob, phone, position_id, salary)
+VALUES ('Mr. PGSTest', '1969-06-11', '+380996352365', 1, 9750);
+
 

@@ -22,10 +22,10 @@ public class App {
         public static void main(String[] args) {
                 EmployeeDAO employeeDAO = (EmployeeDAOImpl) applicationContext.getBean("employeeDAO");
                 /*Employee employee = new Employee();
-                employee.setName("Mr. FifthTest");
+                employee.setName("Mr. ApacheTest");
                 employee.setDob(new Date());
-                employee.setPhone("+30502365920");
-                employee.setSalary(new BigDecimal(9750));
+                employee.setPhone("+30962365923");
+                employee.setSalary(new BigDecimal(10500));
                 Position position = new Position();
                 position.setId(3);
                 position.setName("Waiter");
@@ -34,12 +34,12 @@ public class App {
                         System.out.println("Trying to insert");
                         System.out.println("New id= "+employeeDAO.insert(employee));
                         System.out.println("Inserted!");
-                } catch (Exception e) {
+                } catch (Throwable e) {
                         System.out.println(e.getMessage());
                         System.out.println("Failed to insert...");
                 }*/
 
-                Employee employee = new Employee();
+                /*Employee employee = new Employee();
                 employee.setId(6);
                 employee.setName("Mr. AnotherTest");
                 employee.setDob(new Date());
@@ -50,7 +50,7 @@ public class App {
                 position.setName("Chef");
                 employee.setPosition(position);
 
-                employeeDAO.update(employee);
+                employeeDAO.update(employee);*/
 
 
                 /*PositionServiceImpl positionDAO = applicationContext.getBean("positionService", PositionServiceImpl.class);*/
