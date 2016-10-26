@@ -21,7 +21,7 @@ public class App {
                 new ClassPathXmlApplicationContext("application-context.xml","hibernate-context.xml");
 
         public static void main(String[] args) {
-                EmployeeDAO employeeDAO = (EmployeeDAOImplJPA) applicationContext.getBean("employeeDAOJPA");
+                EmployeeDAO employeeDAO = (EmployeeDAOImplJPA) applicationContext.getBean("employeeDAO");
                 /*Employee employee = new Employee();
                 employee.setName("Mr. ApacheTest");
                 employee.setDob(new Date());

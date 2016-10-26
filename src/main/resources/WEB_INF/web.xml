@@ -20,6 +20,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:application-context.xml
+            classpath:hibernate-context.xml
         </param-value>
     </context-param>
 

@@ -41,6 +41,7 @@ public class ViewEmployeesServlet extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                // Show all employees
                 List<Employee> employeeList = employeeService.getAll();
                 req.setAttribute("employeeList", employeeList);
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/view_employees.jsp");

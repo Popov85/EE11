@@ -33,9 +33,11 @@
         <property name="location" value="classpath:jdbc.properties"/>
     </bean>
 
-    <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImpl" autowire="byName"/>
+   <!-- <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImpl" autowire="byName"/>-->
 
-    <bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>
+    <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>
+
+    <!--<bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>-->
 
     <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImpl" autowire="byName"/>
 
