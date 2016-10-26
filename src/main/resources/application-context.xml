@@ -5,13 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--<context:component-scan base-package="com.goit.popov.ee09.controller"></context:component-scan>-->
-
-
-
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
     <!--<bean id = "dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" autowire="byName">
-
         <property name="driverClass" value="${jdbc.driver.class}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.user}"/>
@@ -28,11 +24,6 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <!--<bean id="reslover" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/" />
-        <property name="suffix" value=".jsp" />
-        <property name="exposeContextBeansAsAttributes" value="true" />
-    </bean>-->
 
     <bean id = "txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref = "dataSource"/>
@@ -43,6 +34,8 @@
     </bean>
 
     <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImpl" autowire="byName"/>
+
+    <bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>
 
     <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImpl" autowire="byName"/>
 

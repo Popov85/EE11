@@ -18,7 +18,7 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <bean id = "sessionFactory" class = "org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id = "sessionFactory" class = "org.springframework.orm.hibernate5.LocalSessionFactoryBean" autowire="byName">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value ="com.goit.popov.ee09.model"/>
         <property name="hibernateProperties">
@@ -28,7 +28,7 @@
         </property>
     </bean>
 
-    <bean id ="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <bean id ="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" autowire="byName">
         <property name="sessionFactory" ref = "sessionFactory"/>
     </bean>
 

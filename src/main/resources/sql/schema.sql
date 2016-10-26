@@ -41,9 +41,15 @@ CREATE TABLE "order" (
   order_date TIMESTAMP NOT NULL,
   table_number int,
   employee_id int NOT NULL,
+  dish_id int NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (employee_id)
-  REFERENCES "employee" (id));
+  REFERENCES "employee" (id),
+  FOREIGN KEY (dish_id)
+  REFERENCES order_dish (order_id)
+  );
+
+  <!-- dish_id -->
 
   CREATE TABLE order_dish (
   order_id INT NOT NULL,

@@ -1,0 +1,61 @@
+package com.goit.popov.ee09.dao.implJPA;
+
+import com.goit.popov.ee09.dao.entity.EmployeeDAO;
+import com.goit.popov.ee09.model.Employee;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+/**
+ * Created by Andrey on 26.10.2016.
+ */
+public class EmployeeDAOImplJPA implements EmployeeDAO {
+
+        private SessionFactory sessionFactory;
+
+        public void setSessionFactory(SessionFactory sessionFactory) {
+                this.sessionFactory = sessionFactory;
+        }
+
+        @Transactional
+        @Override
+        public int insert(Employee employee) {
+                sessionFactory.getCurrentSession().save(employee);
+                return 0;
+        }
+
+        @Transactional
+        @Override
+        public void update(Employee employee) {
+                sessionFactory.getCurrentSession().update(employee);
+        }
+
+        @Transactional
+        @Override
+        public List<Employee> getAll() {
+                return sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
+        }
+
+        @Transactional
+        @Override
+        public Employee getByName(String name) {
+                Query query = sessionFactory.getCurrentSession().createQuery("select e from Employee e where e.name like :name");
+                query.setParameter("name", name);
+                return (Employee) query.uniqueResult();
+        }
+
+        @Transactional
+        @Override
+        public void delete(int id) {
+                sessionFactory.getCurrentSession().delete(id);
+        }
+
+        @Transactional(propagation = Propagation.REQUIRED)
+        @Override
+        public Employee getById(int id) {
+                return sessionFactory.getCurrentSession().get(Employee.class, id);
+        }
+}

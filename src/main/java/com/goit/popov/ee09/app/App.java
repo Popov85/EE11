@@ -2,6 +2,7 @@ package com.goit.popov.ee09.app;
 
 import com.goit.popov.ee09.dao.entity.EmployeeDAO;
 import com.goit.popov.ee09.dao.impl.EmployeeDAOImpl;
+import com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA;
 import com.goit.popov.ee09.model.Employee;
 import com.goit.popov.ee09.model.Position;
 import org.springframework.context.ApplicationContext;
@@ -17,10 +18,10 @@ import java.util.List;
 public class App {
 
         private static ApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext("application-context.xml");
+                new ClassPathXmlApplicationContext("application-context.xml","hibernate-context.xml");
 
         public static void main(String[] args) {
-                EmployeeDAO employeeDAO = (EmployeeDAOImpl) applicationContext.getBean("employeeDAO");
+                EmployeeDAO employeeDAO = (EmployeeDAOImplJPA) applicationContext.getBean("employeeDAOJPA");
                 /*Employee employee = new Employee();
                 employee.setName("Mr. ApacheTest");
                 employee.setDob(new Date());
@@ -54,11 +55,13 @@ public class App {
 
 
                 /*PositionServiceImpl positionDAO = applicationContext.getBean("positionService", PositionServiceImpl.class);*/
-                System.out.println("All existing employees are: ");
+                /*System.out.println("All existing employees are: ");
                 List<Employee> employees = employeeDAO.getAll();
                 for (Employee emp : employees) {
                         System.out.println(emp);
-                }
+                }*/
+                Employee employee = employeeDAO.getByName("Mr. Black");
+                System.out.println(employee);
                 System.out.println("Finished!");
         }
 

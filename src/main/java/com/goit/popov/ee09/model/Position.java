@@ -1,15 +1,25 @@
 package com.goit.popov.ee09.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Positions class, positions available at restaurant
  * @Author: Andrey P.
  * @version 1.0
  */
+@Entity
 public class Position {
 
+        @Id
+        @GeneratedValue
         private int id;
 
+        @Column(name = "title")
         private String name;
+
 
         public int getId() {
                 return id;

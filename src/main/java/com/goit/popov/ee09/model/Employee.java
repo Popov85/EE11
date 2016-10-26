@@ -1,5 +1,6 @@
 package com.goit.popov.ee09.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -8,19 +9,31 @@ import java.util.Date;
  * @Author: Andrey P.
  * @version 1.0
  */
+@Entity
+@Table(name = "employee")
 public class Employee {
 
+        @Id
+        @GeneratedValue
+        @Column(name = "id")
         private int id;
 
+        @Column(name = "name")
         private String name;
 
+        @Column(name = "dob")
         private Date dob;
 
+        @Column(name = "phone")
         private String phone;
 
+        @ManyToOne
+        @JoinColumn(name = "position_id")
         private Position position;
 
+        @Column(name = "salary")
         private BigDecimal salary;
+
 
         public int getId() {
                 return id;
