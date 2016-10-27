@@ -7,5 +7,5 @@ import com.goit.popov.ee09.model.Employee;
  * @version 1.0
  */
 public interface EmployeeDAO extends GenericDAO<Employee> {
-        Employee getById(int id);
+        Employee getByName(String name);
 }

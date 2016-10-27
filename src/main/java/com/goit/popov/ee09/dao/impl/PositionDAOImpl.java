@@ -37,6 +37,16 @@ public class PositionDAOImpl implements PositionDAO {
         }
 
         @Override
+        public int insert(Position position) {
+                return 0;
+        }
+
+        @Override
+        public void update(Position position) {
+
+        }
+
+        @Override
         public List<Position> getAll() {
                 List<Position> positions = new ArrayList<>();
                 Position position;
@@ -55,5 +65,15 @@ public class PositionDAOImpl implements PositionDAO {
                         throw new RuntimeException(ex);
                 }
                 return positions;
+        }
+
+        @Override
+        public Position getById(int id) {
+                return null;
+        }
+
+        @Override
+        public void delete(Position position) {
+
         }
 }

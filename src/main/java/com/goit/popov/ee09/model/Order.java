@@ -1,5 +1,8 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -8,20 +11,36 @@ import java.util.List;
  * @Author: Andrey P.
  * @version 1.0
  */
+@Entity
+@Table(name = "order")
 public class Order {
+        @Id
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
+        @Column(name = "id")
         private int id;
         /*
         Opened order cannot be stored in DB
         Closed order cannot be deleted from the DB.
          */
+        @Column(name = "is_opened")
         private boolean isOpened;
 
+        @Column(name = "order_date")
         private Date orderTimeStamp;
 
+        @Column(name = "table_number")
         private int table;
 
+        @ManyToOne
+        @JoinColumn(name = "employee_id")
         private Employee employee;
 
+        @ManyToMany
+        @JoinTable(name = "dish_order",
+                joinColumns = @JoinColumn(name = "order_id"),
+                inverseJoinColumns = @JoinColumn(name = "dish_id")
+        )
         private List<Dish> dishes;
 
         public int getId() {

@@ -1,5 +1,7 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +16,12 @@ import javax.persistence.Id;
 public class Position {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
         private int id;
 
         @Column(name = "title")
         private String name;
-
 
         public int getId() {
                 return id;
@@ -44,16 +46,13 @@ public class Position {
 
                 Position position = (Position) o;
 
-                if (id != position.id) return false;
                 return name.equals(position.name);
 
         }
 
         @Override
         public int hashCode() {
-                int result = id;
-                result = 31 * result + name.hashCode();
-                return result;
+                return name.hashCode();
         }
 
         @Override

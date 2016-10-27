@@ -1,5 +1,8 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
@@ -7,16 +10,25 @@ import java.math.BigDecimal;
  * @Author: Andrey P.
  * @version 1.0
  */
+@Entity
+@Table(name = "dish")
 public class Dish {
-
+        @Id
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
+        @Column(name = "id")
         private int id;
 
+        @Column(name = "dish_name")
         private String name;
 
+        @Column(name = "category")
         private String category;
 
+        @Column(name = "price")
         private BigDecimal price;
 
+        @Column(name = "weight")
         private double weight;
 
         public int getId() {

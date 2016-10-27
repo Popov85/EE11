@@ -1,5 +1,7 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,7 +16,8 @@ import java.util.Date;
 public class Employee {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
         @Column(name = "id")
         private int id;
 

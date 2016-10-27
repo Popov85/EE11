@@ -1,14 +1,25 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * Ingredient class
  * @Author: Andrey P.
  * @version 1.0
  */
+@Entity
+@Table(name = "ingredient")
 public class Ingredient {
 
+        @Id
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
+        @Column(name = "id")
         private int id;
 
+        @Column(name="ingredient_name")
         private String name;
 
         public int getId() {

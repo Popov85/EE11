@@ -37,7 +37,7 @@ CREATE TABLE dish_ingredient (
 
 CREATE TABLE "order" (
   id SERIAL NOT NULL,
-  isOpened BOOLEAN NOT NULL,
+  is_opened BOOLEAN NOT NULL,
   order_date TIMESTAMP NOT NULL,
   table_number int,
   employee_id int NOT NULL,
@@ -46,10 +46,8 @@ CREATE TABLE "order" (
   FOREIGN KEY (employee_id)
   REFERENCES "employee" (id),
   FOREIGN KEY (dish_id)
-  REFERENCES order_dish (order_id)
+  REFERENCES "dish" (id)
   );
-
-  <!-- dish_id -->
 
   CREATE TABLE order_dish (
   order_id INT NOT NULL,
@@ -74,13 +72,14 @@ CREATE TABLE menu_structure (
 
 CREATE TABLE store_house (
   ingredient_id int NOT NULL,
-  quantiity char(30) NOT NULL,
+  quantity char(30) NOT NULL,
+  PRIMARY KEY (ingredient_id),
   FOREIGN KEY (ingredient_id)
   REFERENCES "ingredient" (id));
 
 CREATE TABLE prepared_dishes (
   id SERIAL NOT NULL,
-  prepared_dish TIMESTAMP NOT NULL,
+  when_prepared TIMESTAMP NOT NULL,
   dish_id int NOT NULL,
   employee_id int NOT NULL,
   order_id int NOT NULL,
