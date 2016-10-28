@@ -93,17 +93,21 @@ public class Employee {
 
                 Employee employee = (Employee) o;
 
-                if (!name.equals(employee.name)) return false;
-                if (!dob.equals(employee.dob)) return false;
-                return phone.equals(employee.phone);
+                if (name != null ? !name.equals(employee.name) : employee.name != null) return false;
+                if (dob != null ? !dob.equals(employee.dob) : employee.dob != null) return false;
+                if (phone != null ? !phone.equals(employee.phone) : employee.phone != null) return false;
+                if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
+                return salary != null ? salary.equals(employee.salary) : employee.salary == null;
 
         }
 
         @Override
         public int hashCode() {
-                int result = name.hashCode();
-                result = 31 * result + dob.hashCode();
-                result = 31 * result + phone.hashCode();
+                int result = name != null ? name.hashCode() : 0;
+                result = 31 * result + (dob != null ? dob.hashCode() : 0);
+                result = 31 * result + (phone != null ? phone.hashCode() : 0);
+                result = 31 * result + (position != null ? position.hashCode() : 0);
+                result = 31 * result + (salary != null ? salary.hashCode() : 0);
                 return result;
         }
 

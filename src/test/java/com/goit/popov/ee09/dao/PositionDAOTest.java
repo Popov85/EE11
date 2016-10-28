@@ -7,10 +7,10 @@ import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -23,30 +23,27 @@ public class PositionDAOTest {
 
         private static final String POSITION = "Cleaner";
 
+        private static final String POSITION_UPD = "Janitor";
+
         private Position expectedPosition;
 
         private Position actualPosition;
 
-        private int actualId;
+        private int generatedId;
 
-        @Autowired
         private PositionDAO positionDAO;
 
-        @Autowired
         private SessionFactory sessionFactory;
 
-        public void setPositionDAO(PositionDAO positionDAO) {
-                this.positionDAO = positionDAO;
-        }
+        private Helper helper;
 
-        public void setSessionFactory(SessionFactory sessionFactory) {
-                this.sessionFactory = sessionFactory;
-        }
 
         @Before
         public void setUp() throws Exception {
-                context = new ClassPathXmlApplicationContext("application-context.xml","hibernate-context.xml");
+                context = new ClassPathXmlApplicationContext("application-context.xml","test-context.xml");
                 positionDAO = (PositionDAOImplJPA) context.getBean("positionDAO");
+                sessionFactory = (SessionFactory) context.getBean("sessionFactory");
+                helper = (Helper) context.getBean("helper");
                 expectedPosition = new Position();
                 expectedPosition.setName(POSITION);
         }
@@ -57,36 +54,46 @@ public class PositionDAOTest {
 
         @Test
         public void test() {
-                // insert
+                // Create
                 insert();
-                // delete
+                // Read by id
+                read();
+                // Read all
+                readAll();
+                // Update
+                update();
+                // Delete
                 delete();
         }
 
         private void insert() {
-                System.out.println("inserting");
-                actualId = positionDAO.insert(expectedPosition);
-                assertNotNull(actualId);
-                actualPosition = positionDAO.getById(actualId);
+                generatedId = positionDAO.insert(expectedPosition);
+                assertNotNull(generatedId);
+                actualPosition = helper.getByIdPosition(generatedId);
                 assertEquals(expectedPosition, actualPosition);
-                System.out.println("inserted");
         }
 
-        @Test
-        public void update() {
-                assertEquals(0, 0);
+        private void read() {
+                actualPosition = helper.getByIdPosition(generatedId);
+                expectedPosition = positionDAO.getById(generatedId);
+                assertEquals(actualPosition, expectedPosition);
         }
 
-        @Test
-        public void getAll() {
-                assertEquals(0, 0);
+        private void update() {
+                expectedPosition.setName(POSITION_UPD);
+                positionDAO.update(expectedPosition);
+                Position updatedPosition = helper.getByIdPosition(generatedId);
+                assertEquals(expectedPosition, updatedPosition);
+        }
+
+        private void readAll() {
+                List<Position> positionList = positionDAO.getAll();
+                assertNotNull(positionList.size());
         }
 
         private void delete() {
-                System.out.println("deleting");
                 positionDAO.delete(this.actualPosition);
-                Position actualPosition = positionDAO.getById(actualId);
+                Position actualPosition = helper.getByIdPosition(generatedId);
                 assertNull(actualPosition);
-                System.out.println("deleted");
         }
 }
