@@ -60,22 +60,17 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                         statement.setInt(4, employee.getPosition().getId());
                         statement.setBigDecimal(5, employee.getSalary());
                         if (1 == statement.executeUpdate() && statement.getGeneratedKeys().next()) {
-                                System.out.println("true");
                                 id = statement.getGeneratedKeys().getInt("id");
-                                System.out.println("id = "+id);
                                 employee.setId(id);
-                                System.out.println("set finished");
                         } else {
                                 LOGGER.error(ERROR);
                                 throw new RuntimeException(ERROR);
                         }
-                        System.out.println("last before catch");
-                        //LOGGER.info("INSERT NEW employee " + employee.toString());
+                        LOGGER.info("INSERT NEW employee " + employee.toString());
                 } catch (SQLException ex) {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);
                 }
-                System.out.println("new id = "+id);
                 return id;
         }
 

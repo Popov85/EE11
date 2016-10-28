@@ -92,7 +92,9 @@ public class Employee {
 
                 if (!name.equals(employee.name)) return false;
                 if (!dob.equals(employee.dob)) return false;
-                return phone.equals(employee.phone);
+                if (!phone.equals(employee.phone)) return false;
+                if (!position.equals(employee.position)) return false;
+                return salary.equals(employee.salary);
 
         }
 
@@ -101,6 +103,8 @@ public class Employee {
                 int result = name.hashCode();
                 result = 31 * result + dob.hashCode();
                 result = 31 * result + phone.hashCode();
+                result = 31 * result + position.hashCode();
+                result = 31 * result + salary.hashCode();
                 return result;
         }
 
