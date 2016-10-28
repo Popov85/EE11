@@ -7,6 +7,5 @@ import java.util.List;
 /**
  * Created by Andrey on 20.10.2016.
  */
-public interface PositionDAO {
-        List<Position> getAll();
+public interface PositionDAO extends GenericDAO<Position> {
 }

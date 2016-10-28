@@ -1,15 +1,37 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+
 /**
  * Created by Andrey on 10/14/2016.
  */
+@Entity
+@Table(name = "prepared_dishes")
 public class PreparedDish {
+
+        @Id
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
+        @Column(name = "id")
         private int id;
 
+        @Column(name = "when_prepared")
+        private Date whenPrepared;
+
+        @ManyToOne
+        @JoinColumn(name = "dish_id")
         private Dish dish;
 
+        @ManyToOne
+        @JoinColumn(name = "employee_id")
         private Employee employee;
 
+        // Consider ManyToMany
+        @ManyToOne
+        @JoinColumn(name = "order_id")
         private Order order;
 
         public int getId() {

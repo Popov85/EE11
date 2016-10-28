@@ -1,14 +1,23 @@
 package com.goit.popov.ee09.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * StoreHouse class keeps info about ingredients in stock and their quantity
  * @Author: Andrey P.
  * @version 1.0
  */
-public class StoreHouse {
+@Entity
+@Table(name = "store_house")
+public class StoreHouse implements Serializable {
 
+        @Id
+        @OneToOne
+        @JoinColumn(name="ingredient_id", unique=true, nullable=false, updatable=false)
         private Ingredient ingredient;
 
+        @Column(name = "quantity")
         private String quantity;
 
         public Ingredient getIngredient() {

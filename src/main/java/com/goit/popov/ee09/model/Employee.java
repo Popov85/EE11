@@ -1,5 +1,7 @@
 package com.goit.popov.ee09.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,7 +16,8 @@ import java.util.Date;
 public class Employee {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(generator = "increment")
+        @GenericGenerator(name = "increment", strategy = "increment")
         @Column(name = "id")
         private int id;
 
@@ -90,21 +93,21 @@ public class Employee {
 
                 Employee employee = (Employee) o;
 
-                if (!name.equals(employee.name)) return false;
-                if (!dob.equals(employee.dob)) return false;
-                if (!phone.equals(employee.phone)) return false;
-                if (!position.equals(employee.position)) return false;
-                return salary.equals(employee.salary);
+                if (name != null ? !name.equals(employee.name) : employee.name != null) return false;
+                if (dob != null ? !dob.equals(employee.dob) : employee.dob != null) return false;
+                if (phone != null ? !phone.equals(employee.phone) : employee.phone != null) return false;
+                if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
+                return salary != null ? salary.equals(employee.salary) : employee.salary == null;
 
         }
 
         @Override
         public int hashCode() {
-                int result = name.hashCode();
-                result = 31 * result + dob.hashCode();
-                result = 31 * result + phone.hashCode();
-                result = 31 * result + position.hashCode();
-                result = 31 * result + salary.hashCode();
+                int result = name != null ? name.hashCode() : 0;
+                result = 31 * result + (dob != null ? dob.hashCode() : 0);
+                result = 31 * result + (phone != null ? phone.hashCode() : 0);
+                result = 31 * result + (position != null ? position.hashCode() : 0);
+                result = 31 * result + (salary != null ? salary.hashCode() : 0);
                 return result;
         }
 

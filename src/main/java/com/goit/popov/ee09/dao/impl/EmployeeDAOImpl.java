@@ -158,13 +158,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
 
         @Override
-        public void delete(int id) {
+        public void delete(Employee employee) {
                 final String DELETE_SQL = "DELETE FROM employee WHERE id = ?";
                 try (Connection connection = dataSource.getConnection();
                      PreparedStatement statement = connection.prepareStatement(DELETE_SQL)) {
-                        statement.setInt(1, id);
+                        statement.setInt(1, employee.getId());
                         statement.executeUpdate();
-                        LOGGER.info("DELETE ENTITY WITH ID = " + id + " FROM TABLE " + "employee");
+                        LOGGER.info("DELETE ENTITY WITH ID = " + employee.getId() + " FROM TABLE " + "employee");
                 } catch (SQLException ex) {
                         LOGGER.error(ex.getMessage());
                         throw new RuntimeException(ex);

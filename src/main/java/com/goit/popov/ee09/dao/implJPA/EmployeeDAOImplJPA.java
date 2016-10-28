@@ -23,8 +23,7 @@ public class EmployeeDAOImplJPA implements EmployeeDAO {
         @Transactional
         @Override
         public int insert(Employee employee) {
-                sessionFactory.getCurrentSession().save(employee);
-                return 0;
+                return (int) sessionFactory.getCurrentSession().save(employee);
         }
 
         @Transactional
@@ -50,8 +49,8 @@ public class EmployeeDAOImplJPA implements EmployeeDAO {
 
         @Transactional
         @Override
-        public void delete(int id) {
-                sessionFactory.getCurrentSession().delete(id);
+        public void delete(Employee employee) {
+                sessionFactory.getCurrentSession().delete(employee);
         }
 
         @Transactional(propagation = Propagation.REQUIRED)

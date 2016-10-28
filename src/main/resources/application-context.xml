@@ -39,7 +39,7 @@
 
     <!--<bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>-->
 
-    <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImpl" autowire="byName"/>
+    <bean id = "positionDAO" class="com.goit.popov.ee09.dao.implJPA.PositionDAOImplJPA" autowire="byName"/>
 
     <bean id = "positionService" class="com.goit.popov.ee09.service.PositionServiceImpl" autowire="byName">
         <property name="positions" value="#{positionDAO.getAll()}"/>

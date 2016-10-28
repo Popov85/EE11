@@ -22,11 +22,11 @@ public class App {
 
         public static void main(String[] args) {
                 EmployeeDAO employeeDAO = (EmployeeDAOImplJPA) applicationContext.getBean("employeeDAO");
-                /*Employee employee = new Employee();
-                employee.setName("Mr. ApacheTest");
+                Employee employee = new Employee();
+                employee.setName("Mr. NewHibernateTest");
                 employee.setDob(new Date());
-                employee.setPhone("+30962365923");
-                employee.setSalary(new BigDecimal(10500));
+                employee.setPhone("+30962362110");
+                employee.setSalary(new BigDecimal(10100));
                 Position position = new Position();
                 position.setId(3);
                 position.setName("Waiter");
@@ -38,7 +38,7 @@ public class App {
                 } catch (Throwable e) {
                         System.out.println(e.getMessage());
                         System.out.println("Failed to insert...");
-                }*/
+                }
 
                 /*Employee employee = new Employee();
                 employee.setId(6);
@@ -54,14 +54,14 @@ public class App {
                 employeeDAO.update(employee);*/
 
 
-                /*PositionServiceImpl positionDAO = applicationContext.getBean("positionService", PositionServiceImpl.class);*/
-                /*System.out.println("All existing employees are: ");
+                //PositionServiceImpl positionDAO = applicationContext.getBean("positionService", PositionServiceImpl.class);*/
+                System.out.println("All existing employees are: ");
                 List<Employee> employees = employeeDAO.getAll();
                 for (Employee emp : employees) {
                         System.out.println(emp);
-                }*/
-                Employee employee = employeeDAO.getByName("Mr. Black");
-                System.out.println(employee);
+                }
+                /*Employee employee = employeeDAO.getByName("Mr. Black");
+                System.out.println(employee);*/
                 System.out.println("Finished!");
         }
 
