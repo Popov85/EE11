@@ -74,7 +74,6 @@ public class PositionDAOTest {
         }
 
         private void read() {
-                actualPosition = helper.getByIdPosition(generatedId);
                 expectedPosition = positionDAO.getById(generatedId);
                 assertEquals(actualPosition, expectedPosition);
         }

@@ -39,8 +39,7 @@ public class Order {
         @ManyToMany
         @JoinTable(name = "dish_order",
                 joinColumns = @JoinColumn(name = "order_id"),
-                inverseJoinColumns = @JoinColumn(name = "dish_id")
-        )
+                inverseJoinColumns = @JoinColumn(name = "dish_id"))
         private List<Dish> dishes;
 
         public int getId() {

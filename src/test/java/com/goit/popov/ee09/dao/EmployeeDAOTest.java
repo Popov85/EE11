@@ -68,12 +68,19 @@ public class EmployeeDAOTest {
                 insert();
                 // Read by id
                 read();
+                // Read by Name
+                readName();
                 // Read all
                 readAll();
                 // Update
                 update();
                 // Delete
                 delete();
+        }
+
+        private void readName() {
+                expectedEmployee = employeeDAO.getByName(EMP_NAME);
+                assertEquals(actualEmployee, expectedEmployee);
         }
 
         private Employee createEmployee() {
@@ -101,7 +108,6 @@ public class EmployeeDAOTest {
         }
 
         private void read() {
-                actualEmployee = helper.getByIdEmployee(generatedId);
                 expectedEmployee = employeeDAO.getById(generatedId);
                 assertEquals(actualEmployee, expectedEmployee);
         }

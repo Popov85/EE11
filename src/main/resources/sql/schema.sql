@@ -30,6 +30,7 @@ CREATE TABLE dish (
 CREATE TABLE dish_ingredient (
   dish_id INT NOT NULL,
   ingredient_id INT NOT NULL,
+  quantity REAL NOT NULL,
   FOREIGN KEY (dish_id)
   REFERENCES "dish" (id),
   FOREIGN KEY (ingredient_id)
