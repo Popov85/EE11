@@ -8,6 +8,6 @@ import java.util.List;
  * Created by Andrey on 10/14/2016.
  */
 public interface PreparedDishHistoryDAO {
-        void addPreparedDish(PreparedDish dish);
+        int addPreparedDish(PreparedDish dish);
         List<PreparedDish> getAll();
 }

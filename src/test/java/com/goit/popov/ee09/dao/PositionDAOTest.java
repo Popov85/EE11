@@ -3,15 +3,12 @@ package com.goit.popov.ee09.dao;
 import com.goit.popov.ee09.dao.entity.PositionDAO;
 import com.goit.popov.ee09.dao.implJPA.PositionDAOImplJPA;
 import com.goit.popov.ee09.model.Position;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 /**
@@ -33,8 +30,6 @@ public class PositionDAOTest {
 
         private PositionDAO positionDAO;
 
-        private SessionFactory sessionFactory;
-
         private Helper helper;
 
 
@@ -42,7 +37,6 @@ public class PositionDAOTest {
         public void setUp() throws Exception {
                 context = new ClassPathXmlApplicationContext("application-context.xml","test-context.xml");
                 positionDAO = (PositionDAOImplJPA) context.getBean("positionDAO");
-                sessionFactory = (SessionFactory) context.getBean("sessionFactory");
                 helper = (Helper) context.getBean("helper");
                 expectedPosition = new Position();
                 expectedPosition.setName(POSITION);

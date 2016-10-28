@@ -1,39 +1,37 @@
 package com.goit.popov.ee09.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * StoreHouse class keeps info about ingredients in stock and their quantity
- * @Author: Andrey P.
- * @version 1.0
+ * Created by Andrey on 10/28/2016.
  */
 @Entity
-@Table(name = "store_house")
-public class StoreHouse implements Serializable {
+@Table(name = "dish_ingredient")
+public class DishIngredient {
 
-        @Id
-        @OneToOne
-        @JoinColumn(name="ingredient_id", unique=true, nullable=false, updatable=false)
+        @ManyToMany
+        @JoinTable(name = "dish_ingredient",
+                joinColumns = @JoinColumn(name = "dish_id"),
+                inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
         private Ingredient ingredient;
 
         @Column(name = "quantity")
-        private double quantity;
+        private double quantityRequired;
 
         public Ingredient getIngredient() {
                 return ingredient;
-        }
-
-        public double getQuantity() {
-                return quantity;
         }
 
         public void setIngredient(Ingredient ingredient) {
                 this.ingredient = ingredient;
         }
 
-        public void setQuantity(double quantity) {
-                this.quantity = quantity;
+        public double getQuantityRequired() {
+                return quantityRequired;
+        }
+
+        public void setQuantityRequired(double quantityRequired) {
+                this.quantityRequired = quantityRequired;
         }
 
         @Override
@@ -41,9 +39,9 @@ public class StoreHouse implements Serializable {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
 
-                StoreHouse that = (StoreHouse) o;
+                DishIngredient that = (DishIngredient) o;
 
-                if (Double.compare(that.quantity, quantity) != 0) return false;
+                if (Double.compare(that.quantityRequired, quantityRequired) != 0) return false;
                 return ingredient.equals(that.ingredient);
 
         }
@@ -53,16 +51,16 @@ public class StoreHouse implements Serializable {
                 int result;
                 long temp;
                 result = ingredient.hashCode();
-                temp = Double.doubleToLongBits(quantity);
+                temp = Double.doubleToLongBits(quantityRequired);
                 result = 31 * result + (int) (temp ^ (temp >>> 32));
                 return result;
         }
 
         @Override
         public String toString() {
-                return "StoreHouse{" +
+                return "DishIngredient{" +
                         "ingredient=" + ingredient +
-                        ", quantity='" + quantity + '\'' +
+                        ", quantityRequired=" + quantityRequired +
                         '}';
         }
 }

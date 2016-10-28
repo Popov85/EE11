@@ -4,7 +4,6 @@ import com.goit.popov.ee09.dao.entity.EmployeeDAO;
 import com.goit.popov.ee09.model.Employee;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -35,14 +34,14 @@ public class EmployeeDAOImplJPA implements EmployeeDAO {
         @Transactional
         @Override
         public List<Employee> getAll() {
-                System.out.println(sessionFactory);
                 return sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
         }
 
         @Transactional
         @Override
         public Employee getByName(String name) {
-                Query query = sessionFactory.getCurrentSession().createQuery("select e from Employee e where e.name like :name");
+                Query query = sessionFactory.getCurrentSession().createQuery("select e from Employee e " +
+                        "where e.name like :name");
                 query.setParameter("name", name);
                 return (Employee) query.uniqueResult();
         }

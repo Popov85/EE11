@@ -1,7 +1,10 @@
 package com.goit.popov.ee09.dao.implJPA;
 
 import com.goit.popov.ee09.dao.entity.StoreHouseDAO;
-import com.goit.popov.ee09.model.Ingredient;
+import com.goit.popov.ee09.model.StoreHouse;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -9,33 +12,49 @@ import java.util.List;
  * Created by Andrey on 28.10.2016.
  */
 public class StoreHouseDAOImplJPA implements StoreHouseDAO {
-        @Override
-        public int insert(Ingredient ingredient) {
-                return 0;
+
+        private SessionFactory sessionFactory;
+
+        public void setSessionFactory(SessionFactory sessionFactory) {
+                this.sessionFactory = sessionFactory;
         }
 
+        @Transactional
         @Override
-        public void update(Ingredient ingredient) {
-
+        public int insert(StoreHouse sh) {
+                return (int) sessionFactory.getCurrentSession().save(sh);
         }
 
+        @Transactional
         @Override
-        public List<Ingredient> getAll() {
-                return null;
+        public void update(StoreHouse sh) {
+                sessionFactory.getCurrentSession().update(sh);
         }
 
+        @Transactional
         @Override
-        public Ingredient getById(int id) {
-                return null;
+        public List<StoreHouse> getAll() {
+                return sessionFactory.getCurrentSession().createQuery("select e from StoreHouse e").list();
         }
 
+        @Transactional
         @Override
-        public void delete(Ingredient ingredient) {
-
+        public StoreHouse getById(int id) {
+                return sessionFactory.getCurrentSession().get(StoreHouse.class, id);
         }
 
+        @Transactional
         @Override
-        public List<Ingredient> getAllRunOut() {
-                return null;
+        public void delete(StoreHouse sh) {
+                sessionFactory.getCurrentSession().delete(sh);
+        }
+
+        @Transactional
+        @Override
+        public List<StoreHouse> getAllRunOut(double threshold) {
+                Query query = sessionFactory.getCurrentSession().createQuery("select s from StoreHouse s " +
+                        "where s.quantity < :threshold");
+                query.setParameter("quantity", threshold);
+                return query.list();
         }
 }

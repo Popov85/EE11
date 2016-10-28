@@ -49,15 +49,12 @@ public class EmployeeDAOTest {
 
         private EmployeeDAO employeeDAO;
 
-        private SessionFactory sessionFactory;
-
         private Helper helper;
 
         @Before
         public void setUp() throws Exception {
                 context = new ClassPathXmlApplicationContext("application-context.xml","test-context.xml");
                 employeeDAO = (EmployeeDAOImplJPA) context.getBean("employeeDAO");
-                sessionFactory = (SessionFactory) context.getBean("sessionFactory");
                 helper = (Helper) context.getBean("helper");
                 expectedEmployee = createEmployee();
         }

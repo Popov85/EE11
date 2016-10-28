@@ -3,6 +3,8 @@ package com.goit.popov.ee09.dao.implJPA;
 import com.goit.popov.ee09.dao.entity.MenuDAO;
 import com.goit.popov.ee09.model.Dish;
 import com.goit.popov.ee09.model.Menu;
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,38 +13,54 @@ import java.util.List;
  */
 public class MenuDAOImplJPA implements MenuDAO {
 
+        private SessionFactory sessionFactory;
+
+        public void setSessionFactory(SessionFactory sessionFactory) {
+                this.sessionFactory = sessionFactory;
+        }
+        @Transactional
         @Override
         public int insert(Menu menu) {
-                return 0;
+                return (int) sessionFactory.getCurrentSession().save(menu);
         }
 
+        @Transactional
         @Override
         public void update(Menu menu) {
-
+                sessionFactory.getCurrentSession().update(menu);
         }
 
+        @Transactional
         @Override
         public List<Menu> getAll() {
-                return null;
+                return sessionFactory.getCurrentSession().createQuery("select m from Menu m").list();
         }
 
+        @Transactional
         @Override
         public Menu getById(int id) {
-                return null;
+                return sessionFactory.getCurrentSession().get(Menu.class, id);
         }
 
+        @Transactional
         @Override
         public void delete(Menu menu) {
-
+                sessionFactory.getCurrentSession().delete(menu);
         }
 
+        @Transactional
         @Override
-        public void addDish(Dish dish) {
-
+        public void addDish(Menu menu, Dish dish) {
+                List<Dish> dishes = menu.getDishes();
+                dishes.add(dish);
+                update(menu);
         }
 
+        @Transactional
         @Override
-        public void deleteDish(Dish dish) {
-
+        public void deleteDish(Menu menu, Dish dish) {
+                List<Dish> dishes = menu.getDishes();
+                dishes.remove(dish);
+                update(menu);
         }
 }

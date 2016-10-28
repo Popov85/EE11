@@ -39,7 +39,8 @@ CREATE TABLE dish_ingredient (
 CREATE TABLE "order" (
   id SERIAL NOT NULL,
   is_opened BOOLEAN NOT NULL,
-  order_date TIMESTAMP NOT NULL,
+  opened_date TIMESTAMP NOT NULL,
+  closed_date TIMESTAMP NOT NULL,
   table_number int,
   employee_id int NOT NULL,
   dish_id int NOT NULL,
@@ -47,8 +48,7 @@ CREATE TABLE "order" (
   FOREIGN KEY (employee_id)
   REFERENCES "employee" (id),
   FOREIGN KEY (dish_id)
-  REFERENCES "dish" (id)
-  );
+  REFERENCES "dish" (id));
 
   CREATE TABLE order_dish (
   order_id INT NOT NULL,

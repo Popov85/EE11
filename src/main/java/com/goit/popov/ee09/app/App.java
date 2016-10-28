@@ -22,7 +22,7 @@ public class App {
 
         public static void main(String[] args) {
                 EmployeeDAO employeeDAO = (EmployeeDAOImplJPA) applicationContext.getBean("employeeDAO");
-                Employee employee = new Employee();
+                /*Employee employee = new Employee();
                 employee.setName("Mr. NewHibernateTest");
                 employee.setDob(new Date());
                 employee.setPhone("+30962362110");
@@ -38,7 +38,7 @@ public class App {
                 } catch (Throwable e) {
                         System.out.println(e.getMessage());
                         System.out.println("Failed to insert...");
-                }
+                }*/
 
                 /*Employee employee = new Employee();
                 employee.setId(6);

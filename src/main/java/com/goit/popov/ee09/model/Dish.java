@@ -35,7 +35,7 @@ public class Dish {
         @JoinTable(name = "dish_ingredient",
                 joinColumns = @JoinColumn(name = "dish_id"),
                 inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
-        private List<Ingredient> ingredients;
+        private List<DishIngredient> ingredients;
 
         public int getId() {
                 return id;
@@ -75,6 +75,14 @@ public class Dish {
 
         public void setWeight(double weight) {
                 this.weight = weight;
+        }
+
+        public List<DishIngredient> getIngredients() {
+                return ingredients;
+        }
+
+        public void setIngredients(List<DishIngredient> ingredients) {
+                this.ingredients = ingredients;
         }
 
         @Override

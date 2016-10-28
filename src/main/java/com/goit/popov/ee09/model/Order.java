@@ -19,14 +19,12 @@ public class Order {
         @GenericGenerator(name = "increment", strategy = "increment")
         @Column(name = "id")
         private int id;
-        /*
-        Opened order cannot be stored in DB
-        Closed order cannot be deleted from the DB.
-         */
+
+        //Closed order cannot be deleted from the DB.
         @Column(name = "is_opened")
         private boolean isOpened;
 
-        @Column(name = "order_date")
+        @Column(name = "opened_date")
         private Date orderTimeStamp;
 
         @Column(name = "table_number")
