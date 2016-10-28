@@ -53,6 +53,7 @@ CREATE TABLE "order" (
   CREATE TABLE order_dish (
   order_id INT NOT NULL,
   dish_id INT NOT NULL,
+  quantity INT NOT NULL,
   FOREIGN KEY (order_id)
   REFERENCES "order" (id),
   FOREIGN KEY (dish_id)

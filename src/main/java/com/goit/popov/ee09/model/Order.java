@@ -25,7 +25,10 @@ public class Order {
         private boolean isOpened;
 
         @Column(name = "opened_date")
-        private Date orderTimeStamp;
+        private Date openedTimeStamp;
+
+        @Column(name = "closed_date")
+        private Date closedTimeStamp;
 
         @Column(name = "table_number")
         private int table;
@@ -38,7 +41,7 @@ public class Order {
         @JoinTable(name = "dish_order",
                 joinColumns = @JoinColumn(name = "order_id"),
                 inverseJoinColumns = @JoinColumn(name = "dish_id"))
-        private List<Dish> dishes;
+        private List<OrderDish> dishes;
 
         public int getId() {
                 return id;
@@ -46,10 +49,6 @@ public class Order {
 
         public boolean isOpened() {
                 return isOpened;
-        }
-
-        public Date getOrderTimeStamp() {
-                return orderTimeStamp;
         }
 
         public int getTable() {
@@ -60,7 +59,7 @@ public class Order {
                 return employee;
         }
 
-        public List<Dish> getDishes() {
+        public List<OrderDish> getDishes() {
                 return dishes;
         }
 
@@ -72,10 +71,6 @@ public class Order {
                 isOpened = opened;
         }
 
-        public void setOrderTimeStamp(Date orderTimeStamp) {
-                this.orderTimeStamp = orderTimeStamp;
-        }
-
         public void setTable(int table) {
                 this.table = table;
         }
@@ -84,8 +79,24 @@ public class Order {
                 this.employee = employee;
         }
 
-        public void setDishes(List<Dish> dishes) {
+        public void setDishes(List<OrderDish> dishes) {
                 this.dishes = dishes;
+        }
+
+        public Date getOpenedTimeStamp() {
+                return openedTimeStamp;
+        }
+
+        public void setOpenedTimeStamp(Date openedTimeStamp) {
+                this.openedTimeStamp = openedTimeStamp;
+        }
+
+        public Date getClosedTimeStamp() {
+                return closedTimeStamp;
+        }
+
+        public void setClosedTimeStamp(Date closedTimeStamp) {
+                this.closedTimeStamp = closedTimeStamp;
         }
 
         @Override
@@ -95,17 +106,24 @@ public class Order {
 
                 Order order = (Order) o;
 
-                if (id != order.id) return false;
                 if (isOpened != order.isOpened) return false;
-                return orderTimeStamp.equals(order.orderTimeStamp);
+                if (table != order.table) return false;
+                if (!openedTimeStamp.equals(order.openedTimeStamp)) return false;
+                if (closedTimeStamp != null ? !closedTimeStamp.equals(order.closedTimeStamp) : order.closedTimeStamp != null)
+                        return false;
+                if (!employee.equals(order.employee)) return false;
+                return dishes.equals(order.dishes);
 
         }
 
         @Override
         public int hashCode() {
-                int result = id;
-                result = 31 * result + (isOpened ? 1 : 0);
-                result = 31 * result + orderTimeStamp.hashCode();
+                int result = (isOpened ? 1 : 0);
+                result = 31 * result + openedTimeStamp.hashCode();
+                result = 31 * result + (closedTimeStamp != null ? closedTimeStamp.hashCode() : 0);
+                result = 31 * result + table;
+                result = 31 * result + employee.hashCode();
+                result = 31 * result + dishes.hashCode();
                 return result;
         }
 
@@ -114,7 +132,8 @@ public class Order {
                 return "Order{" +
                         "id=" + id +
                         ", isOpened=" + isOpened +
-                        ", orderTimeStamp=" + orderTimeStamp +
+                        ", openedTimeStamp=" + openedTimeStamp +
+                        ", closedTimeStamp=" + closedTimeStamp +
                         ", table=" + table +
                         ", employee=" + employee +
                         ", dishes=" + dishes +
