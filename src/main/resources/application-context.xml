@@ -35,11 +35,15 @@
 
    <!-- <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImpl" autowire="byName"/>-->
 
-    <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>
+    <bean id = "employeeDAO" class="com.goit.popov.ee09.dao.impl.EmployeeDAOImplJPA" autowire="byName"/>
+    <bean id = "waiterDAO" class="com.goit.popov.ee09.dao.impl.WaiterDAOImplJPA" autowire="byName"/>
+    <bean id = "chefDAO" class="com.goit.popov.ee09.dao.impl.ChefDAOImplJPA" autowire="byName"/>
+    <bean id = "orderDAO" class="com.goit.popov.ee09.dao.impl.OrderDAOImplJPA" autowire="byName"/>
+    <bean id = "stockDAO" class="com.goit.popov.ee09.dao.impl.StoreHouseDAOImplJPA" autowire="byName"/>
 
-    <!--<bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA" autowire="byName"/>-->
+    <!--<bean id = "employeeDAOJPA" class="com.goit.popov.ee09.dao.implployeeDAOImplJPA" autowire="byName"/>-->
 
-    <bean id = "positionDAO" class="com.goit.popov.ee09.dao.implJPA.PositionDAOImplJPA" autowire="byName"/>
+    <bean id = "positionDAO" class="com.goit.popov.ee09.dao.impl.PositionDAOImplJPA" autowire="byName"/>
 
     <bean id = "positionService" class="com.goit.popov.ee09.service.PositionServiceImpl" autowire="byName">
         <property name="positions" value="#{positionDAO.getAll()}"/>
@@ -48,5 +52,6 @@
     <bean id = "employeeService" class="com.goit.popov.ee09.service.EmployeeServiceImpl" autowire="byName"/>
 
     <bean id = "employee" class = "com.goit.popov.ee09.model.Employee" autowire="byName"/>
+    <bean id = "waiter" class = "com.goit.popov.ee09.model.Waiter" autowire="byName"/>
 
 </beans>

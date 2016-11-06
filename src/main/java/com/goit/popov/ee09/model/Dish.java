@@ -3,7 +3,7 @@ package com.goit.popov.ee09.model;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Map;
 
 /**
  * Dish class
@@ -16,26 +16,34 @@ public class Dish {
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
+        @Column(name = "D_ID")
         private int id;
 
-        @Column(name = "dish_name")
+        @Column(name = "DISH_NAME")
         private String name;
 
-        @Column(name = "category")
+        @Column(name = "CATEGORY")
         private String category;
 
-        @Column(name = "price")
+        @Column(name = "PRICE")
         private BigDecimal price;
 
-        @Column(name = "weight")
+        @Column(name = "WEIGHT")
         private double weight;
 
-        @ManyToMany
+        /*@ManyToMany
         @JoinTable(name = "dish_ingredient",
                 joinColumns = @JoinColumn(name = "dish_id"),
                 inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
-        private List<DishIngredient> ingredients;
+        private List<DishIngredient> ingredients;*/
+
+
+        @ElementCollection(fetch = FetchType.EAGER)
+        @CollectionTable(name = "dish_ingredient",
+                joinColumns = @JoinColumn(name = "D_ID"))
+        @MapKeyJoinColumn(name = "ING_ID")
+        @Column(name = "quantity")
+        Map<Ingredient, Double> ingredients;
 
         public int getId() {
                 return id;
@@ -77,11 +85,11 @@ public class Dish {
                 this.weight = weight;
         }
 
-        public List<DishIngredient> getIngredients() {
+        public Map<Ingredient, Double> getIngredients() {
                 return ingredients;
         }
 
-        public void setIngredients(List<DishIngredient> ingredients) {
+        public void setIngredients(Map<Ingredient, Double> ingredients) {
                 this.ingredients = ingredients;
         }
 

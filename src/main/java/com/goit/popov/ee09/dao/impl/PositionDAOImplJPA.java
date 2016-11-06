@@ -1,7 +1,6 @@
-package com.goit.popov.ee09.dao.implJPA;
+package com.goit.popov.ee09.dao.impl;
 
 import com.goit.popov.ee09.dao.entity.PositionDAO;
-import com.goit.popov.ee09.model.Employee;
 import com.goit.popov.ee09.model.Position;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +33,6 @@ public class PositionDAOImplJPA implements PositionDAO {
         @Transactional
         @Override
         public List<Position> getAll() {
-                System.out.println(sessionFactory);
                 return sessionFactory.getCurrentSession().createQuery("select p from Position p").list();
         }
 

@@ -1,13 +1,14 @@
-package com.goit.popov.ee09.dao.implJPA;
+package com.goit.popov.ee09.dao.impl;
 
 import com.goit.popov.ee09.dao.entity.DishDAO;
 import com.goit.popov.ee09.dao.entity.StoreHouseDAO;
 import com.goit.popov.ee09.model.Dish;
-import com.goit.popov.ee09.model.DishIngredient;
+import com.goit.popov.ee09.model.Ingredient;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Andrey on 28.10.2016.
@@ -17,6 +18,10 @@ public class DishDAOImplJPA implements DishDAO {
         private SessionFactory sessionFactory;
 
         private StoreHouseDAO stock;
+
+        public void setStock(StoreHouseDAO stock) {
+                this.stock = stock;
+        }
 
         public void setSessionFactory(SessionFactory sessionFactory) {
                 this.sessionFactory = sessionFactory;
@@ -54,20 +59,24 @@ public class DishDAOImplJPA implements DishDAO {
 
         @Transactional
         @Override
-        public List<DishIngredient> getIngredients(int id) {
+        public Map<Ingredient, Double> getIngredients(int id) {
                 Dish dish = getById(id);
                 return dish.getIngredients();
         }
 
         @Transactional
         @Override
-        public boolean isIngredientsInStock(int id) {
-                List<DishIngredient> ingredients = getIngredients(id);
-                for (DishIngredient ingredient : ingredients) {
-                       if (stock.getById(ingredient.getIngredient().getId()).getQuantity()
-                               < ingredient.getQuantityRequired()) {
-                              return false;
-                       }
+        public boolean validateIngredients(int id, int number) {
+                Map<Ingredient, Double> ingredients = getIngredients(id);
+                for (Map.Entry<Ingredient, Double> entry : ingredients.entrySet()) {
+                        Ingredient ingredient = entry.getKey();
+                        Double quantityRequired = number * entry.getValue();
+                        Double quantityInStock = stock.getById(ingredient.getId()).getQuantity();
+                        /*For each ingredient of the dish (id) compare how much of the ingredient there is in stock
+                         and how much is actually required to cook the dish*/
+                        if (quantityInStock < quantityRequired) {
+                                return false;
+                        }
                 }
                 return true;
         }

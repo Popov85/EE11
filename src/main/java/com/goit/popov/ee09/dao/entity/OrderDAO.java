@@ -13,4 +13,7 @@ public interface OrderDAO extends GenericDAO<Order> {
         void close(Order order);
         List<Order> getAllClosed();
         List<Order> getAllOpened();
+        /*@param: id of Order we want to check
+          if there are all the required ingredients available in stock.*/
+        boolean validateIngredients(int id);
 }

@@ -1,11 +1,10 @@
 package com.goit.popov.ee09.dao;
 
 import com.goit.popov.ee09.dao.entity.EmployeeDAO;
-import com.goit.popov.ee09.dao.implJPA.EmployeeDAOImplJPA;
+import com.goit.popov.ee09.dao.impl.EmployeeDAOImplJPA;
 import com.goit.popov.ee09.model.Employee;
 import com.goit.popov.ee09.model.Position;
-import org.hibernate.SessionFactory;
-import org.junit.After;
+import com.goit.popov.ee09.model.Waiter;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -81,7 +80,7 @@ public class EmployeeDAOTest {
         }
 
         private Employee createEmployee() {
-                Employee employee = new Employee();
+                Employee employee = new Waiter();
                 employee.setName(EMP_NAME);
                 try {
                         employee.setDob(Helper.format.parse(EMP_DOB));

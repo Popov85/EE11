@@ -14,10 +14,10 @@ public class StoreHouse implements Serializable {
 
         @Id
         @OneToOne
-        @JoinColumn(name="ingredient_id", unique=true, nullable=false, updatable=false)
+        @JoinColumn(name="ING_ID", unique=true, nullable=false, updatable=false)
         private Ingredient ingredient;
 
-        @Column(name = "quantity")
+        @Column(name = "QUANTITY")
         private double quantity;
 
         public Ingredient getIngredient() {

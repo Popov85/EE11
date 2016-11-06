@@ -5,8 +5,9 @@ import javax.persistence.*;
 /**
  * Created by Andrey on 10/28/2016.
  */
-@Entity
-@Table(name = "order_dish")
+@Deprecated
+/*@Entity
+@Table(name = "order_dish")*/
 public class OrderDish {
         @ManyToMany
         @JoinTable(name = "order_dish",

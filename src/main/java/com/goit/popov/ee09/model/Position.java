@@ -2,10 +2,7 @@ package com.goit.popov.ee09.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Positions class, positions available at restaurant
@@ -13,14 +10,16 @@ import javax.persistence.Id;
  * @version 1.0
  */
 @Entity
+@Table(name = "emp_position")
 public class Position {
 
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
+        @Column(name = "POS_ID")
         private int id;
 
-        @Column(name = "title")
+        @Column(name = "POS_NAME")
         private String name;
 
         public int getId() {

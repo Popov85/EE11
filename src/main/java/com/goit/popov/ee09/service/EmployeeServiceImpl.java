@@ -1,11 +1,8 @@
 package com.goit.popov.ee09.service;
 
 import com.goit.popov.ee09.dao.entity.EmployeeDAO;
-import com.goit.popov.ee09.dao.impl.EmployeeDAOImpl;
 import com.goit.popov.ee09.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 

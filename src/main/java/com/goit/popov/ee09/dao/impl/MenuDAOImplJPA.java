@@ -1,4 +1,4 @@
-package com.goit.popov.ee09.dao.implJPA;
+package com.goit.popov.ee09.dao.impl;
 
 import com.goit.popov.ee09.dao.entity.MenuDAO;
 import com.goit.popov.ee09.model.Dish;

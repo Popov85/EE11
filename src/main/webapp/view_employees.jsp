@@ -17,7 +17,7 @@
 <div class="col-md-10" align="center">
         <h3 class="form-signin-heading" align="center">Employees</h3>
                 <div class="col-md-6" align="left">
-                        <a class="hyperlink" href="/employee.jsp">New Employee</a>
+                        <a class="hyperlink" href="/waiter.jsp">New Employee</a>
                 </div>
         <table class="table table-bordered">
                 <thead>
@@ -33,16 +33,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${requestScope.employeeList}" var="employee">
+                <c:forEach items="${requestScope.employeeList}" var="waiter">
                         <tr>
-                                <td><c:out value="${employee.id}"/></td>
-                                <td><c:out value="${employee.name}"/></td>
-                                <td><c:out value="${employee.dob}"/></td>
-                                <td><c:out value="${employee.phone}"/></td>
-                                <td><c:out value="${employee.position.name}"/></td>
-                                <td><c:out value="${employee.salary}"/></td>
-                                <td><a href="employee?action=edit&id=<c:out value="${employee.id}"/>">Edit</a></td>
-                                <td><a href="employee?action=delete&id=<c:out value="${employee.id}"/>">Delete</a></td>
+                                <td><c:out value="${waiter.id}"/></td>
+                                <td><c:out value="${waiter.name}"/></td>
+                                <td><c:out value="${waiter.dob}"/></td>
+                                <td><c:out value="${waiter.phone}"/></td>
+                                <td><c:out value="${waiter.position.name}"/></td>
+                                <td><c:out value="${waiter.salary}"/></td>
+                                <td><a href="waiter?action=edit&id=<c:out value="${waiter.id}"/>">Edit</a></td>
+                                <td><a href="waiter?action=delete&id=<c:out value="${waiter.id}"/>">Delete</a></td>
                         </tr>
                 </c:forEach>
                 </tbody>
@@ -53,7 +53,7 @@
                         <div align="left">
                                 <label for="name">Search by name: </label>
                                 <input type="text" id="name" placeholder="" size="15"
-                                       name="name" value="<c:out value="${employee.name}"/>"
+                                       name="name" value="<c:out value="${waiter.name}"/>"
                                        required autofocus style="z-index: 2;">
                         </div>
                         <div class="form-group">

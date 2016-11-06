@@ -10,30 +10,30 @@
 </head>
 <body style="padding: 25px;">
 <div class="container">
-        <form action="/employee" method="post" name="newUser"
+        <form action="/waiter" method="post" name="newUser"
               style="max-width: 320px; margin: 0 auto; font-size: larger;">
                 <h3 class="form-signin-heading" align="center">Employee:</h3>
                 <div class="form-group">
                         <input type="text" readonly="readonly" name="id" title="ID" size="10"
-                               value="<c:out value="${employee.id}"/>">
+                               value="<c:out value="${waiter.id}"/>">
                 </div>
                 <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" class="form-control" placeholder=""
-                               name="name" value="<c:out value="${employee.name}"/>"
+                               name="name" value="<c:out value="${waiter.name}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
                 <div class="form-group">
                         <label for="dob">DOB</label>
                         <input type="text" id="dob" class="form-control" placeholder=""
-                               name="dob" value="<fmt:formatDate pattern="MM/dd/yyyy" value="${employee.dob}"/>"
+                               name="dob" value="<fmt:formatDate pattern="MM/dd/yyyy" value="${waiter.dob}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
 
                 <div class="form-group">
                         <label for="phone">Phone:</label>
                         <input type="text" id="phone" class="form-control" placeholder=""
-                               name="phone" value="<c:out value="${employee.phone}"/>"
+                               name="phone" value="<c:out value="${waiter.phone}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
 
@@ -51,7 +51,7 @@
                 <div class="form-group">
                         <label for="salary">Salary</label>
                         <input type="text" id="salary" class="form-control" placeholder=""
-                               name="salary" value="<c:out value="${employee.salary}"/>"
+                               name="salary" value="<c:out value="${waiter.salary}"/>"
                                required autofocus style="z-index: 2;">
                 </div>
 

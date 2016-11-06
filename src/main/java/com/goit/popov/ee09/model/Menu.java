@@ -16,16 +16,16 @@ public class Menu {
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
+        @Column(name = "M_ID")
         private int id;
 
-        @Column(name = "menu_name")
+        @Column(name = "MENU_NAME")
         private String name;
 
         @ManyToMany
-        @JoinTable(name = "menu_structure",
-                joinColumns = @JoinColumn(name = "menu_id"),
-                inverseJoinColumns = @JoinColumn(name = "dish_id")
+        @JoinTable(name = "menu_dish",
+                joinColumns = @JoinColumn(name = "M_ID"),
+                inverseJoinColumns = @JoinColumn(name = "D_ID")
         )
         private List<Dish> dishes;
 

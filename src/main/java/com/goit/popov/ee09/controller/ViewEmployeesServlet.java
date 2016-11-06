@@ -1,16 +1,8 @@
 package com.goit.popov.ee09.controller;
 
-import com.goit.popov.ee09.dao.impl.EmployeeDAOImpl;
 import com.goit.popov.ee09.model.Employee;
 import com.goit.popov.ee09.service.EmployeeService;
-import com.goit.popov.ee09.service.EmployeeServiceImpl;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 

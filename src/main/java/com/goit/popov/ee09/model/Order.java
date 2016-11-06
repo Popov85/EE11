@@ -1,10 +1,9 @@
 package com.goit.popov.ee09.model;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 /**
  * Order class. A restaurant order is made by its visitors, it may contain many dishes
@@ -12,36 +11,42 @@ import java.util.List;
  * @version 1.0
  */
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
+        @Column(name = "ORD_ID")
         private int id;
 
-        //Closed order cannot be deleted from the DB.
-        @Column(name = "is_opened")
+        @Column(name = "IS_OPENED")
         private boolean isOpened;
 
-        @Column(name = "opened_date")
+        @Column(name = "OPEN_DATE")
         private Date openedTimeStamp;
 
-        @Column(name = "closed_date")
+        @Column(name = "CLOSE_DATE")
         private Date closedTimeStamp;
 
-        @Column(name = "table_number")
+        @Column(name = "TABLE_NUMBER")
         private int table;
 
-        @ManyToOne
-        @JoinColumn(name = "employee_id")
-        private Employee employee;
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "EMP_ID")
+        private Waiter waiter;
 
-        @ManyToMany
+        /*@ManyToMany
         @JoinTable(name = "dish_order",
-                joinColumns = @JoinColumn(name = "order_id"),
-                inverseJoinColumns = @JoinColumn(name = "dish_id"))
-        private List<OrderDish> dishes;
+                joinColumns = @JoinColumn(name = "ORD_ID"),
+                inverseJoinColumns = @JoinColumn(name = "D_ID"))
+        private List<OrderDish> dishes;*/
+
+        @ElementCollection(fetch = FetchType.EAGER)
+        @CollectionTable(name = "order_dish",
+                joinColumns = @JoinColumn(name = "ORD_ID"))
+        @MapKeyJoinColumn(name = "D_ID")
+        @Column(name = "quantity")
+        Map<Dish, Integer> dishes;
 
         public int getId() {
                 return id;
@@ -55,11 +60,11 @@ public class Order {
                 return table;
         }
 
-        public Employee getEmployee() {
-                return employee;
+        public Waiter getWaiter() {
+                return waiter;
         }
 
-        public List<OrderDish> getDishes() {
+        public Map<Dish, Integer> getDishes() {
                 return dishes;
         }
 
@@ -75,11 +80,11 @@ public class Order {
                 this.table = table;
         }
 
-        public void setEmployee(Employee employee) {
-                this.employee = employee;
+        public void setWaiter(Waiter waiter) {
+                this.waiter = waiter;
         }
 
-        public void setDishes(List<OrderDish> dishes) {
+        public void setDishes(Map<Dish, Integer> dishes) {
                 this.dishes = dishes;
         }
 
@@ -111,7 +116,7 @@ public class Order {
                 if (!openedTimeStamp.equals(order.openedTimeStamp)) return false;
                 if (closedTimeStamp != null ? !closedTimeStamp.equals(order.closedTimeStamp) : order.closedTimeStamp != null)
                         return false;
-                if (!employee.equals(order.employee)) return false;
+                if (!waiter.equals(order.waiter)) return false;
                 return dishes.equals(order.dishes);
 
         }
@@ -122,7 +127,7 @@ public class Order {
                 result = 31 * result + openedTimeStamp.hashCode();
                 result = 31 * result + (closedTimeStamp != null ? closedTimeStamp.hashCode() : 0);
                 result = 31 * result + table;
-                result = 31 * result + employee.hashCode();
+                result = 31 * result + waiter.hashCode();
                 result = 31 * result + dishes.hashCode();
                 return result;
         }
@@ -135,8 +140,6 @@ public class Order {
                         ", openedTimeStamp=" + openedTimeStamp +
                         ", closedTimeStamp=" + closedTimeStamp +
                         ", table=" + table +
-                        ", employee=" + employee +
-                        ", dishes=" + dishes +
                         '}';
         }
 }

@@ -1,14 +1,17 @@
-package com.goit.popov.ee09.dao.implJPA;
+package com.goit.popov.ee09.dao.impl;
 
+import com.goit.popov.ee09.dao.entity.DishDAO;
 import com.goit.popov.ee09.dao.entity.OrderDAO;
+import com.goit.popov.ee09.dao.entity.StoreHouseDAO;
 import com.goit.popov.ee09.model.Dish;
+import com.goit.popov.ee09.model.Ingredient;
 import com.goit.popov.ee09.model.Order;
-import com.goit.popov.ee09.model.OrderDish;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Andrey on 10/28/2016.
@@ -17,6 +20,18 @@ public class OrderDAOImplJPA implements OrderDAO {
 
         private SessionFactory sessionFactory;
 
+        private DishDAO dish;
+
+        private StoreHouseDAO stock;
+
+        public void setStock(StoreHouseDAO stock) {
+                this.stock = stock;
+        }
+
+        public void setDish(DishDAO dish) {
+                this.dish = dish;
+        }
+
         public void setSessionFactory(SessionFactory sessionFactory) {
                 this.sessionFactory = sessionFactory;
         }
@@ -24,7 +39,23 @@ public class OrderDAOImplJPA implements OrderDAO {
         @Transactional
         @Override
         public int insert(Order order) {
+                updateStock(order);
                 return (int) sessionFactory.getCurrentSession().save(order);
+        }
+
+        @Transactional
+        private void updateStock(Order order) {
+                Map<Dish, Integer> dishes = order.getDishes();
+                for (Map.Entry<Dish, Integer> entry : dishes.entrySet()) {
+                        Dish dish = entry.getKey();
+                        Integer quantityOrdered = entry.getValue();
+                        Map<Ingredient, Double> ingredients = dish.getIngredients();
+                        for (Map.Entry<Ingredient, Double> ing : ingredients.entrySet()) {
+                                Ingredient ingredient = ing.getKey();
+                                Double quantityRequired = ing.getValue();
+                                stock.decreaseQuantity(ingredient, quantityRequired * quantityOrdered);
+                        }
+                }
         }
 
         @Transactional
@@ -54,22 +85,16 @@ public class OrderDAOImplJPA implements OrderDAO {
         @Transactional
         @Override
         public void addDish(Order order, Dish dish, int quantity) {
-                List<OrderDish> dishes = order.getDishes();
-                OrderDish oDish = new OrderDish();
-                oDish.setDish(dish);
-                oDish.setQuantityOrdered(quantity);
-                dishes.add(oDish);
+                Map<Dish, Integer> dishes = order.getDishes();
+                dishes.put(dish, quantity);
                 update(order);
         }
 
         @Transactional
         @Override
         public void deleteDish(Order order, Dish dish, int quantity) {
-                List<OrderDish> dishes = order.getDishes();
-                OrderDish oDish = new OrderDish();
-                oDish.setDish(dish);
-                oDish.setQuantityOrdered(quantity);
-                dishes.remove(oDish);
+                Map<Dish, Integer> dishes = order.getDishes();
+                dishes.remove(dish, quantity);
                 update(order);
         }
 
@@ -94,5 +119,26 @@ public class OrderDAOImplJPA implements OrderDAO {
                 Query query = sessionFactory.getCurrentSession().createQuery("select o from Order o" +
                         "where o.isOpened = true");
                 return query.list();
+        }
+
+
+        @Transactional
+        public Map<Dish, Integer> getDishes(int id) {
+                Order order = getById(id);
+                return order.getDishes();
+        }
+
+        @Transactional
+        @Override
+        public boolean validateIngredients(int id) {
+                Map<Dish, Integer> dishes = getDishes(id);
+                for (Map.Entry<Dish, Integer> entry : dishes.entrySet()) {
+                        Dish dish = entry.getKey();
+                        Integer quantityOrdered = entry.getValue();
+                        if (!this.dish.validateIngredients(dish.getId(), quantityOrdered)) {
+                                return false;
+                        }
+                }
+                return true;
         }
 }

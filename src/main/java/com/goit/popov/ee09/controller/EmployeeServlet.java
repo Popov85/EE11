@@ -2,6 +2,7 @@ package com.goit.popov.ee09.controller;
 
 import com.goit.popov.ee09.model.Employee;
 import com.goit.popov.ee09.model.Position;
+import com.goit.popov.ee09.model.Waiter;
 import com.goit.popov.ee09.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -36,7 +37,7 @@ public class EmployeeServlet extends HttpServlet {
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
                 // Save data to DB
-                Employee employee = new Employee();
+                Employee employee = new Waiter();
                 employee.setName(req.getParameter("name"));
                 Date dob = null;
                 try {

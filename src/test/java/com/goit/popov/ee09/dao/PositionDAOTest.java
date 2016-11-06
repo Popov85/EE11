@@ -1,7 +1,7 @@
 package com.goit.popov.ee09.dao;
 
 import com.goit.popov.ee09.dao.entity.PositionDAO;
-import com.goit.popov.ee09.dao.implJPA.PositionDAOImplJPA;
+import com.goit.popov.ee09.dao.impl.PositionDAOImplJPA;
 import com.goit.popov.ee09.model.Position;
 import org.junit.After;
 import org.junit.Before;

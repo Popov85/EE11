@@ -43,7 +43,7 @@
 
     <servlet-mapping>
         <servlet-name>Employee</servlet-name>
-        <url-pattern>/employee</url-pattern>
+        <url-pattern>/waiter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Employees</servlet-name>

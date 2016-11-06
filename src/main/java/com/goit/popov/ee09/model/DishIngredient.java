@@ -5,14 +5,15 @@ import javax.persistence.*;
 /**
  * Created by Andrey on 10/28/2016.
  */
-@Entity
-@Table(name = "dish_ingredient")
+@Deprecated
+/*@Entity
+@Table(name = "dish_ingredient")*/
 public class DishIngredient {
 
         @ManyToMany
         @JoinTable(name = "dish_ingredient",
-                joinColumns = @JoinColumn(name = "dish_id"),
-                inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
+                joinColumns = @JoinColumn(name = "D_ID"),
+                inverseJoinColumns = @JoinColumn(name = "ING_ID"))
         private Ingredient ingredient;
 
         @Column(name = "quantity")

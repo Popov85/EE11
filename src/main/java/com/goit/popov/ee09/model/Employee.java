@@ -13,29 +13,30 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "employee")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Employee {
 
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
-        private int id;
+        @Column(name = "EMP_ID")
+        protected int id;
 
-        @Column(name = "name")
-        private String name;
+        @Column(name = "EMP_NAME")
+        protected String name;
 
-        @Column(name = "dob")
-        private Date dob;
+        @Column(name = "DOB")
+        protected Date dob;
 
-        @Column(name = "phone")
-        private String phone;
+        @Column(name = "PHONE")
+        protected String phone;
 
         @ManyToOne
-        @JoinColumn(name = "position_id")
-        private Position position;
+        @JoinColumn(name = "POS_ID")
+        protected Position position;
 
-        @Column(name = "salary")
-        private BigDecimal salary;
+        @Column(name = "SALARY")
+        protected BigDecimal salary;
 
 
         public int getId() {

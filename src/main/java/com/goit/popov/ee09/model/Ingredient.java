@@ -16,10 +16,10 @@ public class Ingredient {
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
+        @Column(name = "ING_ID")
         private int id;
 
-        @Column(name="ingredient_name")
+        @Column(name="ING_NAME")
         private String name;
 
         public int getId() {

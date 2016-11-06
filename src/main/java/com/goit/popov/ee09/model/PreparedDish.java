@@ -9,29 +9,29 @@ import java.util.Date;
  * Created by Andrey on 10/14/2016.
  */
 @Entity
-@Table(name = "prepared_dishes")
+@Table(name = "prepared_dish")
 public class PreparedDish {
 
         @Id
         @GeneratedValue(generator = "increment")
         @GenericGenerator(name = "increment", strategy = "increment")
-        @Column(name = "id")
+        @Column(name = "PD_ID")
         private int id;
 
-        @Column(name = "when_prepared")
+        @Column(name = "WHEN_PREPARED")
         private Date whenPrepared;
 
         @ManyToOne
-        @JoinColumn(name = "dish_id")
+        @JoinColumn(name = "D_ID")
         private Dish dish;
 
         @ManyToOne
-        @JoinColumn(name = "employee_id")
-        private Employee employee;
+        @JoinColumn(name = "EMP_ID")
+        private Employee chef;
 
         // Consider ManyToMany
         @ManyToOne
-        @JoinColumn(name = "order_id")
+        @JoinColumn(name = "ORD_ID")
         private Order order;
 
         public int getId() {
@@ -42,8 +42,8 @@ public class PreparedDish {
                 return dish;
         }
 
-        public Employee getEmployee() {
-                return employee;
+        public Employee getChef() {
+                return chef;
         }
 
         public Order getOrder() {
@@ -58,8 +58,8 @@ public class PreparedDish {
                 this.dish = dish;
         }
 
-        public void setEmployee(Employee employee) {
-                this.employee = employee;
+        public void setChef(Employee chef) {
+                this.chef = chef;
         }
 
         public void setOrder(Order order) {
@@ -75,7 +75,7 @@ public class PreparedDish {
 
                 if (id != that.id) return false;
                 if (!dish.equals(that.dish)) return false;
-                if (!employee.equals(that.employee)) return false;
+                if (!chef.equals(that.chef)) return false;
                 return order.equals(that.order);
 
         }
@@ -84,7 +84,7 @@ public class PreparedDish {
         public int hashCode() {
                 int result = id;
                 result = 31 * result + dish.hashCode();
-                result = 31 * result + employee.hashCode();
+                result = 31 * result + chef.hashCode();
                 result = 31 * result + order.hashCode();
                 return result;
         }
@@ -94,7 +94,7 @@ public class PreparedDish {
                 return "PreparedDish{" +
                         "id=" + id +
                         ", dish=" + dish +
-                        ", employee=" + employee +
+                        ", chef=" + chef +
                         ", order=" + order +
                         '}';
         }

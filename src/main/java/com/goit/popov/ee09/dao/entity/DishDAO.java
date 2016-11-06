@@ -1,9 +1,9 @@
 package com.goit.popov.ee09.dao.entity;
 
 import com.goit.popov.ee09.model.Dish;
-import com.goit.popov.ee09.model.DishIngredient;
+import com.goit.popov.ee09.model.Ingredient;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * DishDAO interface
@@ -13,10 +13,11 @@ import java.util.List;
 public interface DishDAO extends GenericDAO<Dish> {
 
         //Gets all the ingredients needed to prepare a Dish
-        List<DishIngredient> getIngredients(int id);
-        /*
-        @param: id - id of Dish we want to check
-        if there are all needed ingredients are available in stock.
-         */
-        boolean isIngredientsInStock(int id);
+        Map<Ingredient, Double> getIngredients(int id);
+
+        /**
+         * @param: id - Dish we want to check
+         * @param: number - quantity of dishes
+         * */
+        boolean validateIngredients(int id, int number);
 }

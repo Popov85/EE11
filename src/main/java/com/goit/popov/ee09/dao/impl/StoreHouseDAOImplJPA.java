@@ -1,6 +1,7 @@
-package com.goit.popov.ee09.dao.implJPA;
+package com.goit.popov.ee09.dao.impl;
 
 import com.goit.popov.ee09.dao.entity.StoreHouseDAO;
+import com.goit.popov.ee09.model.Ingredient;
 import com.goit.popov.ee09.model.StoreHouse;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -56,5 +57,10 @@ public class StoreHouseDAOImplJPA implements StoreHouseDAO {
                         "where s.quantity < :threshold");
                 query.setParameter("quantity", threshold);
                 return query.list();
+        }
+
+        @Override
+        public void decreaseQuantity(Ingredient ingredient, Double quantity) {
+
         }
 }

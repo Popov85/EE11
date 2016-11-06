@@ -1,5 +1,6 @@
 package com.goit.popov.ee09.dao.entity;
 
+import com.goit.popov.ee09.model.Ingredient;
 import com.goit.popov.ee09.model.StoreHouse;
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface StoreHouseDAO extends GenericDAO<StoreHouse> {
         value, say 10 kg/L)
          */
         List<StoreHouse> getAllRunOut(double threshold);
+
+        void decreaseQuantity(Ingredient ingredient, Double quantity);
 }
